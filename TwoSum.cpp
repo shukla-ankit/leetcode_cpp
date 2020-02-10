@@ -18,14 +18,19 @@ vector<int> twoSum(vector<int>& nums, int target) {
     return ret;
 }
 
+void print(vector<int> v){
+	for (auto a : v)
+		cout << " " << a << ",";
+}
 
 int main(){
     vector<int> myVec = {5, 8, 15, 2, 7, 11, 15};
+    cout << "List of integers is : ";
+    print (myVec);
     int target = 9;
-    cout << "Indices of two numbers whose sum is " << target << " are ";
-    vector<int> ret = twoSum(myVec, target);
-    for(auto x: ret){
-        cout << x << " ";
-    }
+    cout << "\nTarget is " << target;
+    cout << "\nIndices of two numbers whose sum is " << target << " are ";
+    print(twoSum(myVec, target));
+    cout << endl;
     return 0;
 }
