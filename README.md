@@ -1,2 +1,2 @@
 # LeetCode
-Preparation for interviews
+Github repository for LeetCode Solutions in C++ for interview preparation 
