@@ -1,4 +1,4 @@
-//LeetCode Problem #5 -  Longest Palindromic Substring 
+//LeetCode Problem 5 - Longest Palindromic Substring
 
 #include <iostream>
 #include <vector>
@@ -8,12 +8,14 @@
 using namespace std;
 
 class Solution {
-public:
-
+    public:
+        
 };
 
 int main() {
     Solution sol;
+
+
 	return 0;
 }
 
