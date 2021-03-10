@@ -13,7 +13,7 @@ class Solution {
 
     }
     string longestPalindrome(string s) {
-        int lenPosLongestPal = s.length();
+        
     }
 };
 
