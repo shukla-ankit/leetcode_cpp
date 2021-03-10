@@ -16,10 +16,15 @@ class Solution {
         
 };
 
+struct Test{
+};
+
 int main() {
     Solution sol;
-
-
+    vector<Test> vecTests = {};
+    for(auto test: vecTests){
+        sol.XXXX(test);
+    }
 	return 0;
 }
 " >> "source/"$cppFileName
