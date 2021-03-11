@@ -1,10 +1,5 @@
 //LeetCode Problem 6 - ZigZag Conversion
-
-#include <iostream>
-#include <vector>
-#include <set>
-#include <map>
-#include <string>
+#include "everything.h"
 using namespace std;
 
 class Solution {
@@ -33,7 +28,6 @@ class Solution {
             return converted;
         }
 };
-
 struct Test{
     string str;
     int rows;

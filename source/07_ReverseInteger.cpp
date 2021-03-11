@@ -1,17 +1,6 @@
 //LeetCode Problem 7 - Reverse Integer
-
-#include <iostream>
-#include <vector>
-#include <set>
-#include <map>
-#include <string>
-#include <climits>
-#include "colormod.h"
+#include "everything.h"
 using namespace std;
-
-Color::Modifier red(Color::FG_RED);
-Color::Modifier green(Color::FG_GREEN);
-Color::Modifier def(Color::FG_DEFAULT);
 
 class Solution {
     public:

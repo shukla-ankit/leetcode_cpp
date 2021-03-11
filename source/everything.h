@@ -1,4 +1,11 @@
+#include <iostream>
+#include <vector>
+#include <set>
+#include <map>
+#include <string>
+#include <climits>
 #include <ostream>
+
 namespace Color {
     enum Code {
         FG_RED      = 31,
@@ -20,5 +27,9 @@ namespace Color {
         }
     };
 }
+
+Color::Modifier red(Color::FG_RED);
+Color::Modifier green(Color::FG_GREEN);
+Color::Modifier def(Color::FG_DEFAULT);
 
 

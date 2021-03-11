@@ -1,17 +1,11 @@
 //LeetCode Problem 12 - Integer to Roman
-
-#include <iostream>
-#include <vector>
-#include <set>
-#include <map>
-#include <string>
-#include <climits>
-#include "colormod.h"
+#include "everything.h"
 using namespace std;
 
-Color::Modifier red(Color::FG_RED);
-Color::Modifier green(Color::FG_GREEN);
-Color::Modifier def(Color::FG_DEFAULT);
+struct Test{
+    int num;
+    string output;
+};
 
 class Solution {
     public:
@@ -50,11 +44,6 @@ class Solution {
             }
             return ret;
         }
-};
-
-struct Test{
-    int num;
-    string output;
 };
 
 int main() {
