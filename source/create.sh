@@ -25,7 +25,7 @@ echo "//LeetCode Problem "$num" -"$name"
 #include <map>
 #include <string>
 #include <climits>
-#include \"../colormod.h\"
+#include \"colormod.h\"
 using namespace std;
 
 Color::Modifier red(Color::FG_RED);
@@ -50,4 +50,4 @@ int main() {
     }
 	return 0;
 }
-" >> "source/"$cppFileName
+" >> $cppFileName
