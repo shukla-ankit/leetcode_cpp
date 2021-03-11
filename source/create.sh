@@ -17,29 +17,17 @@ fi
 cppFileName=$zeroes`echo $num"_"${name// /}".cpp"`
 
 echo $cppFileName" created!"
-echo "//LeetCode Problem "$num" -"$name"
 
-#include <iostream>
-#include <vector>
-#include <set>
-#include <map>
-#include <string>
-#include <climits>
-#include \"colormod.h\"
+echo "//LeetCode Problem "$num" -"$name"
+#include \"everything.h\"
 using namespace std;
 
-Color::Modifier red(Color::FG_RED);
-Color::Modifier green(Color::FG_GREEN);
-Color::Modifier def(Color::FG_DEFAULT);
-
+struct Test{
+};
 class Solution {
     public:
         
 };
-
-struct Test{
-};
-
 int main() {
     Solution sol;
     vector<Test> vecTests = {};
