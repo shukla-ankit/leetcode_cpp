@@ -43,9 +43,7 @@ int main() {
     Solution sol;
     vector<Test> vecTests = {{"PAYPALISHIRING", 3, "PAHNAPLSIIGYIR"}, 
                              {"PAYPALISHIRING", 4, "PINALSIGYAHRPI"},
-                             {"A", 1, "A"},
-                             {"maptvhyyewsggiuasuakgzumqwotffqrhglcpldthvzpdwpvqpizqclgabbfgrznxmrnzuigpkxvgosyfaxxeidflgmrzngzzymyswgkgdfotxnyakvevalgiyailghngvnbtulazsqvpftrqrwnrhtahvkvcrkkoxlhtyjvsaqifjbxaxkuhgwqbglfzvqnvduoeejwgzgnlinnhzhofffhlsokqgxlkuzqalmimvxxdknkkwbrcganapaqvzbhtdxvomdahdamnnwzjzrlhtbiidygccnyfntvbzviexurkstwsmjzfkjqniwsmlqralmbmjlqjfkvadrurbvwnfobpmvbyluawicltnbcvnyxsprjsmigtwjijeljrflpnnahdelarjxkbqttebbyakijquuhbfxrvxyabjavvzfwrarvctvedenwajdboaulasldenybmfxdgobkjwopcdlcmogcraotvzybnxcbebfkrgubeiqhldlzttckwqfrpeuedwghxnsovorzzhimkumepoqlgwevcycfwiovxgksxdtwlcixyudnkuzqsdoweqbaapyxykrxnktymdykabykxzbrernkhqnjiliivzfijyjwdhidkiokhrboipyrhlapwixrhccscloguzjehzorqsfahdrortgnddhkijfkuvsoucucblvudaumfm", 549, 
-                             "maptvhyyewsggiuasuakgzumqwotffqrhglcpldthvzpdwpvqpizqclgabbfgrznxmrnzuigpkxvgosyfaxxeidflgmrzngzzymyswgkgdfotxnyakvevalgiyailghngvnbtulazsqvpftrqrwnrhtahvkvcrkkoxlhtyjvsaqifjbxaxkuhgwqbglfzvqnvduoeejwgzgnlinnhzhofffhlsokqgxlkuzqalmimvxxdknkkwbrcganapaqvzbhtdxvomdahdamnnwzjzrlhtbiidygccnyfntvbzviexurkstwsmjzfkjqniwsmlqralmbmjlqjfkvadrurbvwnfobpmvbyluawicltnbcvnyxsprjsmigtwjijeljrflpnnahdelarjxkwmibffoqcmvtyuxtcagevdkbeusbwvxygldalbtkqcwiouljpccqeuiumoxuusyhkvubmudfiknxhfkrzjuvzizxrkqyohsavddbodojsnwangevxtqvhrbzgoafwrawddprehyauaxrefyvpskcrqrtfrxvqonewzkdkhteceyntjmwtzdazuyjlgkddoabllbohcyaqskuicxleczabhbsurrlgxedrirekwnnfpkybahbelqmbhnfcrjxxyidnplgbiioyoibzbvkvrzjthfwokioaojpriycckjdgdwloidcmh"}
+                             {"A", 1, "A"}
                              };
 
     for(auto test: vecTests){

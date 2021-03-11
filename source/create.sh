@@ -3,10 +3,10 @@ name=`echo $1 | cut -d '.' -f2`
 zeroes=""
 if [ "${#num}" == "1" ] 
 then
-    zeroes="0"
+    zeroes="_0"
 elif [ "${#num}" == "2" ]
 then
-    zeroes=""
+    zeroes="_"
 #elif [ "${#num}" == "3" ]
 #then
 #    zeroes="0"

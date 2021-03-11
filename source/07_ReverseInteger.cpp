@@ -6,7 +6,12 @@
 #include <map>
 #include <string>
 #include <climits>
+#include "colormod.h"
 using namespace std;
+
+Color::Modifier red(Color::FG_RED);
+Color::Modifier green(Color::FG_GREEN);
+Color::Modifier def(Color::FG_DEFAULT);
 
 class Solution {
     public:
@@ -55,7 +60,7 @@ int main() {
     int count = 0;
     for(auto test: vecTests){
         int ret = sol.reverse(test.x);
-        cout << "Test #" << ++count << " : Reverse of " << test.x << " is =" << ret << ". Test = " << (ret == test.sol? "Pass" : "Fail") << endl;
+        cout << "Test #" << ++count << " : Reverse of " << test.x << " is =" << ret << ". Test = " << (ret == test.sol? green : red) << (ret == test.sol? "Pass!" : "Fail!") << def << endl;
     }
 	return 0;
 }
