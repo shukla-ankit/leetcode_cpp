@@ -6,7 +6,7 @@
 #include <map>
 #include <string>
 #include <climits>
-#include "colormod.h"
+#include "../colormod.h"
 
 using namespace std;
 class Solution {

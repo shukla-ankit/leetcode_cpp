@@ -3,16 +3,16 @@ name=`echo $1 | cut -d '.' -f2`
 zeroes=""
 if [ "${#num}" == "1" ] 
 then
-    zeroes="000"
+    zeroes="0"
 elif [ "${#num}" == "2" ]
 then
-    zeroes="00"
-elif [ "${#num}" == "3" ]
-then
-    zeroes="0"
-elif [ "${#num}" == "4" ]
-then
     zeroes=""
+#elif [ "${#num}" == "3" ]
+#then
+#    zeroes="0"
+#elif [ "${#num}" == "4" ]
+#then
+#    zeroes=""
 fi
 cppFileName=$zeroes`echo $num"_"${name// /}".cpp"`
 
@@ -25,7 +25,7 @@ echo "//LeetCode Problem "$num" -"$name"
 #include <map>
 #include <string>
 #include <climits>
-#include \"colormod.h\"
+#include \"../colormod.h\"
 using namespace std;
 
 Color::Modifier red(Color::FG_RED);
