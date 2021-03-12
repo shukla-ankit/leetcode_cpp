@@ -9,7 +9,7 @@ struct Test{
 };
 class Solution {
     public:
-        bool isMatch(string s, string p) {
+        bool myMethod(string s, string p){
             int i=0, j=0;
             char cWildCardMatchChar = '\0';
             while(i < s.length() && j < p.length()){
@@ -46,6 +46,26 @@ class Solution {
             return i == s.length() && 
                         (    j == p.length() || 
                             (j == p.length()-1 && p[j=1] == '*'));
+            
+        }
+
+        bool given_method(string text, string pattern) {
+            if (pattern.empty()) 
+                return text.empty();
+                
+            bool first_match = (!text.empty() &&
+                                (pattern[0] == text[0]|| pattern[0] == '.'));
+
+            if (pattern.length() >= 2 && pattern[1] == '*'){
+                return (isMatch(text, pattern.substr(2)) ||
+                        (first_match && isMatch(text.substr(1), pattern)));
+            } else {
+                return first_match && isMatch(text.substr(1), pattern.substr(1));
+            }
+        }
+        bool isMatch(string s, string p) {
+            //return myMethod(s, p);
+            return given_method(s,p);
         }
 };
 int main() {
