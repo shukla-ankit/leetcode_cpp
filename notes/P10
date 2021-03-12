@@ -1,0 +1,28 @@
+//LeetCode Problem 10 - Regular Expression Matching
+
+Pseudocode
+1. Parse both strings
+    2. if both match, 
+            move to next character in string and pattern
+       else 
+            return false
+    3. else if pattern's current character is *
+                if pattern's previous character matches 
+                    then stay on with same pattern character
+                else 
+                    move to next pattern character
+                move to next string character
+    4. else if pattern's current character is .
+                if following character is *
+                    then check characters after * match with string. // can pass recursively to same function to match with                     
+                else
+                    continue to next character in pattern and string
+
+                    
+                
+
+
+
+        
+    
+    
