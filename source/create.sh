@@ -33,8 +33,8 @@ int main() {
     vector<Test> vecTests = {};
     int count = 0;
     for(auto test: vecTests){        
-        int ret = sol.XXXX(test);
-        cout << \"Test #\" << ++count << \" : Input = \" << test.s << \", Output = \" << ret << \". Result : \" <<  (ret == test.sol? green : red) << (ret == test.sol? \"Pass\" : \"Fail\") << \"!\" << def << endl;
+        int ret = sol.XXXX(test.input);
+        cout << \"Test #\" << ++count << \" : Input = \" << test.input << \", Output = \" << ret << \". Result : \" <<  (ret == test.output? green : red) << (ret == test.output? \"Pass\" : \"Fail\") << \"!\" << def << endl;
     }
 	return 0;
 }
