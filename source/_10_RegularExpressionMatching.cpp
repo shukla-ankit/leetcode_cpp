@@ -11,33 +11,41 @@ class Solution {
     public:
         bool isMatch(string s, string p) {
             int i=0, j=0;
+            char cWildCardMatchChar = '\0';
             while(i < s.length() && j < p.length()){
                 if(s[i] == p[j]){
-                    i++; j++;
+                    i++; j++; // char to char matching
                 }                
                 else if(p[j] == '.'){
-                    i++; j++;
+                    i++; j++; // mimic matching by .
                 }
                 else if(p[j] == '*'){
-                    if(p[j-1] == '.'){
+                    if(cWildCardMatchChar == '\0')
+                        cWildCardMatchChar = p[j-1];
+                    if(cWildCardMatchChar == '.'){
                         // remains
-                        cout << "That case" << endl ;
+                        cout << ".* case" << endl;
                         break;
                     }
-                    else if(p[j-1] == s[i]){
-                        i++;
+                    else if(cWildCardMatchChar == s[i]){
+                        cout << "start N occurence * case" << endl;
+                        i++;    // * causes N occurences of cWildCardMatchChar
                     }
                     else{
-                        i++; j++;
+                        cWildCardMatchChar = '\0';
+                        j++;     // * causes end of cWildCardMatchChar matching
+                        cout << "end N occurence * case" << endl;
                     }
                 }
                 else if(j < p.size() -1 && p[j+1] == '*'){
-                    i++; j++;
+                    i++; j++;   // * causes 0 occurence of cWildCardMatchChar
                 }
                 else
                     return false;
             }            
-            return i == s.length() && (j == p.length() || (j == p.length()-1 && p[j=1] == '*'));
+            return i == s.length() && 
+                        (    j == p.length() || 
+                            (j == p.length()-1 && p[j=1] == '*'));
         }
 };
 int main() {
