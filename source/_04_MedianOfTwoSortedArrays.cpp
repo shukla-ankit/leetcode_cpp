@@ -6,6 +6,7 @@ using namespace std;
 
 class Solution {
 public:
+    // approach 1
     double medianOfSingleArray(vector<int>& nums){
         int l = nums.size();
         if(l % 2 == 0)
@@ -72,7 +73,7 @@ public:
     }
 
     double findMedianSortedArrays(vector<int>& nums1, vector<int>& nums2) {
-        return bruteforce(nums1, nums2);
+        return bruteforce(nums1, nums2); // approach 1
     }
 };
 
