@@ -86,10 +86,12 @@ int main() {
 }
 
 /*
+-----------------------------------------------------------------------------------------------------------
 method1: <<EASIER, FASTER WAY>>
+Trick1: Convert to string reverse the string
 
 Problem: C++ has limits for datattype
-Trick: use bigger datatypes than required i.e. long instead of int (right from step 2)
+Trick2: use bigger datatypes than required i.e. long instead of int (right from step 2)
 
 step 1: check the sign, keep a flag
 step 2: make it positive
@@ -97,9 +99,9 @@ step 3: convert to string
 step 4: reverse the string
 step 5: convert to int
 step 6: put the sign and return
-
-
+-----------------------------------------------------------------------------------------------------------
 method2: <<SLIGHTLY DIFFICULT WAY>>
+
 Problem: C++ has limits for datattype
 Trick: Check everytime for bounds
 
@@ -113,11 +115,12 @@ step 3:     Keep dividing x by 10 and taking out remainder
 step 4:     Add remainder to reverse_x as long as in limits. Don't worry about sign of remainder (Remeber 2)
 step 5:     if limits fair, return 0
 step 6: When loop ends, return reverse_x
-
+-----------------------------------------------------------------------------------------------------------
 method3: Leetcode Method
 Problem: C++ has limits for datattype
 Trick: Memorize unit's place digits for limits. Makes it easier than condition checks in method2
 
 Remember 4: Memorize INT_MAX has 7 at unit's place and INT_MIN has -8 (Remember 2 from method2)
 Approach is same as method2
+-----------------------------------------------------------------------------------------------------------
 */
