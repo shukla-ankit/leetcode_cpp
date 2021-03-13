@@ -59,8 +59,7 @@ public:
     }
     int myAtoi(string s)
     {
-        return method2(s);
-        //return method1(s);
+        return method1(s);
     }
 };
 
