@@ -14,7 +14,8 @@ then
 #then
 #    zeroes=""
 fi
-cppFileName=$zeroes`echo $num"_"${name// /}".cpp"`
+#cppFileName=$zeroes`echo $num"_"${name// /}".cpp"`
+cppFileName=$zeroes`echo $num"_"${name// /}
 
 echo $cppFileName" created!"
 
