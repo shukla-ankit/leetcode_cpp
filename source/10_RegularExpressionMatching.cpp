@@ -111,6 +111,17 @@ method1: <<>> Doesn't work!!
 -----------------------------------------------------------------------------------------------------------
 method2: Leetcode Method
 
+Recursive approach
+
+Step 1: Check if pattern is empty, text must be empty to match (return true). Else mismatch i.e. return false
+        Otherwise : // Remaining steps for pattern is not empty
+Step 2: Check if text is not empty, return status
+Step 3: Check if text[0] matches pattern[0] or pattern[0] = '.' ? else return fail
+
+Step 4
+
+
+
 
 -----------------------------------------------------------------------------------------------------------
 */
