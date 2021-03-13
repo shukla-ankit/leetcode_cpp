@@ -9,7 +9,7 @@ struct Test{
 };
 class Solution {
     public:
-        bool myMethod(string s, string p){
+        bool method1(string s, string p){
             int i=0, j=0;
             char cWildCardMatchChar = '\0';
             while(i < s.length() && j < p.length()){
@@ -49,7 +49,7 @@ class Solution {
             
         }
 
-        bool given_method(string text, string pattern) {
+        bool leetcode_method(string text, string pattern) {
             if (pattern.empty()) 
                 return text.empty();
                 
@@ -64,8 +64,8 @@ class Solution {
             }
         }
         bool isMatch(string s, string p) {
-            //return myMethod(s, p);
-            return given_method(s,p);
+            //return method1(s, p);
+            return leetcode_method(s,p);
         }
 };
 int main() {
@@ -86,7 +86,11 @@ int main() {
 }
 
 /*
-Pseudocode
+
+
+-----------------------------------------------------------------------------------------------------------
+method1: <<>> Doesn't work!!
+
 1. Parse both strings
     2. if both match, 
             move to next character in string and pattern
@@ -104,5 +108,10 @@ Pseudocode
                 else
                     continue to next character in pattern and string
 
+-----------------------------------------------------------------------------------------------------------
+method2: Leetcode Method
+
+
+-----------------------------------------------------------------------------------------------------------
 */
 
