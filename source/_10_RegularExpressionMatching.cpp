@@ -64,8 +64,8 @@ class Solution {
             }
         }
         bool isMatch(string s, string p) {
-            //return method1(s, p);
-            return leetcode_method(s,p);
+            return method1(s, p);
+            //return leetcode_method(s,p);
         }
 };
 int main() {
