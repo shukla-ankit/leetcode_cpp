@@ -19,7 +19,6 @@ echo $cppFileName" created!"
 
 echo "//LeetCode Problem "$num" -"$name"
 #include \"everything.h\"
-using namespace std;
 
 struct Test{
 };

@@ -1,52 +1,14 @@
 //LeetCode Problem 15 - 3Sum
 #include "everything.h"
-using namespace std;
-
 struct Test{
-    vector<int> input;
-    vector<vector<int>> output;
+    vector<int > input;
+    vector<vector<int > > output;
 };
-
 class Solution {
     public:        
-        string print_array(vector<int> array){
-            string ret = "[" ;
-            for(int n: array)
-                ret += n ;
-            return ret + "]" ;
-        }
-        
-        string print_array_of_arrays(vector<vector<int>> arrayOfArrays){
-            string ret = "[" ;
-            for(auto array : arrayOfArrays)
-                ret += print_array(array);
-            return ret + "]" ;            
-        }
-
-        bool match_array(vector<int> array1, vector<int> array2){
-            if (array1.size() != array2.size())
-                return false;
-
-            for(int i = 0; i< array1.size() ; i++){
-                if(array1[i] != array2[i])
-                    return false;
-            }
-            return true;
-        }
-        
-        bool match_arrays_of_arrays(vector<vector<int>> arrayOfArrays1, vector<vector<int>> arrayOfArrays2){
-            if (arrayOfArrays1.size() != arrayOfArrays2.size())
-                return false;
-
-            for(int i = 0; i< arrayOfArrays1.size() ; i++){
-                if(match_array(arrayOfArrays1[i], arrayOfArrays2[i]))
-                    return false;
-            }
-            return true;
-        }
         vector<vector<int>> twoSum(vector<int>& nums, int target) {
             vector<vector<int>> ret;
-            map<int, int> mapNumToIndex;
+            map<int, int> mapNumToIndex;            
             for(int i = 0; i< nums.size(); i++){
                 if(mapNumToIndex.find(target-nums[i]) == mapNumToIndex.end())
                     mapNumToIndex[nums[i]] = i;			
@@ -55,21 +17,20 @@ class Solution {
             }
             return ret;
         }
-
         vector<vector<int>> method(vector<int>& nums){
             vector<vector<int>> retVec;
+            
             if(nums.size() < 3) return retVec;
 
             for(int i = 0; i < nums.size(); i++ ){
                 vector<int> subset = nums; 
                 subset.erase(nums.begin() + i);
                 vector<vector<int>> ret = twoSum(subset, -nums[i]);
-                for(int i = 0; i < ret.size(); i++){
-                    ret[i][0] = ret[i][0] < i ? ret[i][0] : ret[i][0]+1;
-                    ret[i][1] = ret[i][1] < i ? ret[i][1] : ret[i][1]+1;
-                    ret[i].push_back(i);
-                    sort(ret[i].begin(), ret[i].begin()+ ret[i].size());
-                    
+                for(int j = 0; j < ret.size(); j++){
+                    ret[j][0] = ret[j][0] < i ? ret[j][0] : ret[j][0]+1;
+                    ret[j][1] = ret[j][1] < i ? ret[j][1] : ret[j][1]+1;
+                    ret[j].push_back(i);
+                    sort(ret[j].begin(), ret[j].begin()+ ret[j].size());                    
                     retVec.push_back(ret[i]);
                 }
             }
@@ -82,6 +43,7 @@ class Solution {
         }
         
 };
+
 int main() {
     Solution sol;
     vector<Test> vecTests = {
@@ -92,7 +54,7 @@ int main() {
     int count = 0;
     for(auto test: vecTests){        
         auto ret = sol.threeSum(test.input);
-        cout << "Test #" << ++count << " Input = " << sol.print_array(test.input) << ": Output = " << sol.print_array_of_arrays(ret) << ". Result : " <<  (ret == test.output? green : red) << (sol.match_arrays_of_arrays(ret,test.output)? "Pass" : "Fail") << "!" << def << endl;
+        cout << "Test #" << ++count << " Input = " << print_array<int>(test.input) << ": Output = " << print_array_of_arrays<int>(ret) << ". Result : " <<  (match_arrays_of_arrays<int>(ret,test.output)? green : red) << (match_arrays_of_arrays<int>(ret,test.output)? "Pass" : "Fail") << "!" << def << endl;
     }
 	return 0;
 }
