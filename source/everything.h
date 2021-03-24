@@ -5,6 +5,7 @@
 #include <string>
 #include <climits>
 #include <ostream>
+#include <algorithm>
 
 namespace Color {
     enum Code {
