@@ -57,7 +57,7 @@ int main() {
     int count = 0;
     for(auto test: vecTests){        
         int ret = sol.searchInsert(test.Input.nums, test.Input.target);
-        cout << "Test #" << ++count << " : Input = " << print_array(test.Input.nums) << ", Output = " << ret << ". Result : " <<  (ret == test.Output? green : red) << (ret == test.Output? "Pass" : "Fail") << "!" << def << endl;
+        cout << "Test #" << ++count << " : Input = {" << print_array(test.Input.nums) << " , " << test.Input.target<< "}, Output = " << ret << ". Result : " <<  (ret == test.Output? green : red) << (ret == test.Output? "Pass" : "Fail") << "!" << def << endl;
     }
 	return 0;
 }
