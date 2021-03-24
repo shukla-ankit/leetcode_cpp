@@ -41,3 +41,19 @@ int main() {
 	return 0;
 }
 
+/*
+-----------------------------------------------------------------------------------------------------------
+method1: <<>>
+-----------------------------------------------------------------------------------------------------------
+method2: Leetcode Method
+/////////////////////// Problem 13. Roman to Integer //////////////////////////////////////////////
+Pseudocode:
+1. Set total := 0, prevRomanSymbol := ""
+2. For (curRomanSymbol : RomanNumeralString)
+    total := total + RomanToInteger(curRomanSymbol)
+    if RomanToInteger(prevRomanSymbol) < RomanToInteger(curRomanSymbol):
+        total := total - 2 x RomanToInteger(prevRomanSymbol)
+4. return total
+
+-----------------------------------------------------------------------------------------------------------
+*/

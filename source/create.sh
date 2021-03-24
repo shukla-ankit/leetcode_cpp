@@ -14,9 +14,7 @@ then
 #then
 #    zeroes=""
 fi
-#cppFileName=$zeroes`echo $num"_"${name// /}".cpp"`
-cppFileName=$zeroes`echo $num"_"${name// /}
-
+cppFileName=$zeroes`echo $num"_"${name// /}".cpp"`
 echo $cppFileName" created!"
 
 echo "//LeetCode Problem "$num" -"$name"
@@ -46,7 +44,7 @@ int main() {
 -----------------------------------------------------------------------------------------------------------
 method1: <<>>
 -----------------------------------------------------------------------------------------------------------
-method2: Leetcode Method
+Leetcode Method:
 
 -----------------------------------------------------------------------------------------------------------
 */
