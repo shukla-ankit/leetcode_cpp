@@ -1,10 +1,13 @@
 //LeetCode Problem 1 - Two Sum
-
-#include <iostream>
-#include <vector>
-#include <map>
-using namespace std;
-
+#include "everything.h"
+struct input{
+	vector<int> nums;
+	 int target;
+};
+struct Test{
+    input Input;
+    vector<int> Output;
+};
 class Solution {
 public:
     vector<int> twoSum(vector<int>& nums, int target) {
@@ -18,18 +21,18 @@ public:
 		return {-1, -1};
     }
 };
-
 int main() {
-	Solution s;
-	vector<vector<int>> vecTestcases = {
-		{2,7,11,15},
-		{3,2,4},
-		{3,3}
+	Solution sol;
+	vector<Test> tests = {
+		{.Input={.nums={2,7,11,15}, .target=9}, .Output = {0, 1}},
+		{.Input={.nums={3,2,4}, .target=6}, .Output = {1, 2}},
+		{.Input={.nums={3, 3}, .target=6}, .Output = {0, 1}},
 	};
-	vector<int> vecTarget = {9, 6, 6};
-	for(int i = 0; i < vecTestcases.size(); i++){
-		vector<int> op = s.twoSum(vecTestcases[i],vecTarget[i]);	
-		cout << "[" << op[0] << "," << op[1] << "]"<< endl;
+	int count = 0;
+	for(auto test: tests){
+        vector<int> ret = sol.twoSum(test.Input.nums, test.Input.target);
+		bool bIsPass = match_array<int>(ret, test.Output);
+        cout << "Test #" << ++count << " : Input = " << print_array<int>(test.Input.nums) << ", Output = " << print_array<int>(ret) << ". Result : " <<  (bIsPass? green : red) << (bIsPass? "Pass" : "Fail") << "!" << def << endl;
 	}
 	return 0;
 }

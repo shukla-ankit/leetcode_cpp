@@ -1,3 +1,4 @@
+#!/bin/bash
 num=`echo $1 | cut -d '.' -f1`
 name=`echo $1 | cut -d '.' -f2`
 zeroes=""
@@ -35,7 +36,8 @@ int main() {
     int count = 0;
     for(auto test: vecTests){        
         int ret = sol.XXXX(test.input);
-        cout << \"Test #\" << ++count << \" : Input = \" << test.input << \", Output = \" << ret << \". Result : \" <<  (ret == test.output? green : red) << (ret == test.output? \"Pass\" : \"Fail\") << \"!\" << def << endl;
+        bool bIsPass = ret == test.output;
+        cout << \"Test #\" << ++count << \" : Input = \" << test.input << \", Output = \" << ret << \". Result : \" <<  (bIsPass? green : red) << (bIsPass? \"Pass\" : \"Fail\") << \"!\" << def << endl;
     }
 	return 0;
 }

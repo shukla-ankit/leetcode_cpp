@@ -1,13 +1,5 @@
 //LeetCode Problem 7 - Reverse Integer
-
-#include <iostream>
-#include <vector>
-#include <set>
-#include <map>
-#include <string>
-#include <climits>
-using namespace std;
-
+#include "everything.h"
 class Solution {
     public:
         string reverseStr(string s){
@@ -80,7 +72,8 @@ int main() {
     int count = 0;
     for(auto test: vecTests){
         int ret = sol.reverse(test.input);
-        cout << "Test #" << ++count << " : Reverse of " << test.input << " is " << ret << ". Test = " << (ret == test.output? "Pass" : "Fail") << endl;
+        bool bIsPass = ret == test.output;
+        cout << "Test #" << ++count << " : Reverse of " << test.input << " is " << ret << ". Result = " << (bIsPass? green : red) << (ret == test.output? "Pass" : "Fail") << def << endl;
     }
 	return 0;
 }

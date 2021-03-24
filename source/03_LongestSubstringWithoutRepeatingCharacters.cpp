@@ -1,11 +1,9 @@
 //LeetCode Problem 3 - Longest Substring Without Repeating Characters
-
-#include <iostream>
-#include <vector>
-#include <string>
-#include <map>
-using namespace std;
-
+#include "everything.h"
+struct Test{
+    string Input;
+    int Output;
+};
 class Solution {
 public:
     int lengthOfLongestSubstring(string s) {
@@ -29,10 +27,19 @@ public:
 };
 
 int main() {	
-	vector<string> vecTests = {"abcabcbb", "bbbbb",  "pwwkew", "", " ", "abcdefghi"};
-	Solution sol;
-	for(auto s: vecTests){		
-		cout << sol.lengthOfLongestSubstring(s) << endl;
-	}
+    Solution sol;
+    vector<Test> vecTests = {{.Input ="abcabcbb",.Output=3},
+	{.Input ="bbbbb",.Output=1},
+	{.Input ="pwwkew",.Output=3},
+	{.Input ="",.Output=0},
+	{.Input =" ",.Output=1},
+	{.Input ="abcdefghi",.Output=9}
+	};    
+    int count = 0;
+    for(auto test: vecTests){        
+        int ret = sol.lengthOfLongestSubstring(test.Input);
+		bool bIsPass = ret == test.Output;
+        cout << "Test #" << ++count << " : Input = " << test.Input << ", Output = " << ret << ". Result : " <<  (bIsPass? green : red) << (bIsPass? "Pass" : "Fail") << "!" << def << endl;
+    }
 	return 0;
 }

@@ -1,12 +1,9 @@
 //LeetCode Problem 5 - Longest Palindromic Substring
-
-#include <iostream>
-#include <vector>
-#include <set>
-#include <map>
-#include <string>
-using namespace std;
-
+#include "everything.h"
+struct Test{
+    string Input;
+    string Output;
+};
 class Solution {
     public:
     string longestPalindrome(string s, int start, int end) {
@@ -37,10 +34,16 @@ class Solution {
 
 int main() {
     Solution sol;
-    vector<string> vecTests = {"babad", "cbbd", "a", "ac"};
-    for(auto str: vecTests){
-        string lp = sol.longestPalindrome(str);
-        cout << "String \"" << str << "\" has longest pandrome as \"" << lp << "\"" << endl;
+    vector<Test> vecTests = {{.Input ="babad",.Output="aba"},
+	{.Input ="cbbd",.Output="bb"},
+    {.Input ="a",.Output="a"},
+    {.Input ="ac",.Output="c"},
+    };    
+    int count = 0;
+    for(auto test: vecTests){        
+        string ret = sol.longestPalindrome(test.Input);
+		bool bIsPass = ret == test.Output;
+        cout << "Test #" << ++count << " : Input = " << test.Input << ", Output = " << ret << ". Result : " <<  (bIsPass? green : red) << (bIsPass? "Pass" : "Fail") << "!" << def << endl;
     }
 	return 0;
 }

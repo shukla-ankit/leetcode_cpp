@@ -1,7 +1,13 @@
 //LeetCode Problem 6 - ZigZag Conversion
 #include "everything.h"
-using namespace std;
-
+struct input{
+    string text;
+    int rows;
+};
+struct Test{
+    input Input;
+    string Output;
+};
 class Solution {
     public:
         string convert(string s, int numRows) {
@@ -28,21 +34,18 @@ class Solution {
             return converted;
         }
 };
-struct Test{
-    string str;
-    int rows;
-    string solution;
-};
 int main() {
     Solution sol;
-    vector<Test> vecTests = {{"PAYPALISHIRING", 3, "PAHNAPLSIIGYIR"}, 
-                             {"PAYPALISHIRING", 4, "PINALSIGYAHRPI"},
-                             {"A", 1, "A"}
-                             };
-
-    for(auto test: vecTests){
-        string res =  sol.convert(test.str,test.rows);
-        cout << res << ", matched = " << (res == test.solution? "YES" : "NO") << endl;
+    vector<Test> vecTests = {
+        {.Input={.text="PAYPALISHIRING", .rows=3},.Output="PAHNAPLSIIGYIR"},
+    	{.Input={.text="PAYPALISHIRING",.rows=4},.Output="PINALSIGYAHRPI"},
+        {.Input={.text="A",.rows=1},.Output="A"}
+    };    
+    int count = 0;
+    for(auto test: vecTests){        
+        string ret = sol.convert(test.Input.text, test.Input.rows);
+		bool bIsPass = ret == test.Output;
+        cout << "Test #" << ++count << " : Input { " << test.Input.text << " , " <<test.Input.rows << "}, Output = " << ret << ". Result : " <<  (bIsPass? green : red) << (bIsPass? "Pass" : "Fail") << "!" << def << endl;
     }
 	return 0;
 }
