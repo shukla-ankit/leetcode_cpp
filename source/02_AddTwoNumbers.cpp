@@ -1,11 +1,14 @@
 //LeetCode Problem 2 - 	Add Two Numbers
+#include "everything.h"
 
-#include <iostream>
-using namespace std;
 struct ListNode {
     int val;
     ListNode *next;
     ListNode(int x) : val(x), next(NULL) {}
+    ~ListNode(){
+        if(next)
+            next->~ListNode();        
+    }
 };
 
 ListNode* addTwoNumbers(ListNode* l1, ListNode* l2) {
@@ -69,9 +72,14 @@ ListNode* CreateNumList(int num){
 void printList(ListNode* l){
     if(l == nullptr)
         return;
-    cout << " -> " << l->val ;
+    cout << l->val << " -> " ;
     printList(l->next);
 }
+
+struct Test{
+    vector<vector<int>> Input;
+    vector<int> Output;
+};
 
 int main(){
     ListNode *num1 = CreateNumList(342), *num2 = CreateNumList(465);
@@ -82,5 +90,7 @@ int main(){
     cout << "\nThere sum is : ";
     printList(addTwoNumbers(num1,num2));
     cout << endl;
+    num1->~ListNode();
+    num2->~ListNode();
     return 0;
 }
