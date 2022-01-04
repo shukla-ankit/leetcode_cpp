@@ -7,7 +7,15 @@ start with finding mid = (start + end)/2
 if nums[mid] = target, return mid
 else change start or end depending on where target falls
 
-if start > end, return start as insertion index
+if start > end, return start as insertion index <<<-------- This part I struggled to understand.
+The reason is when "start < end" condition failed, the number was in this interval.
+
+Earlier start and end must have been equal.
+
+So if start was increased, it means searched number needs to be inserted right after end, which is start.
+
+If end was decreased further it means searched number is less than nums[mid], when mid = start = mid.
+So searched number needs to be inserted at start and moving every number after it to right by 1.
 */
 
 #include "everything.h"
