@@ -8,14 +8,14 @@ if nums[mid] = target, return mid
 else change start or end depending on where target falls
 
 if start > end, return start as insertion index <<<-------- This part I struggled to understand.
-The reason is when "start < end" condition failed, the number was in this interval.
+The reason is initially "start <= end" condition held true, the number was in this interval.
+Later start and end must have become equal.
+After that, either
+1. start was increased, which means : searched number is greater than mid = start = end and needs to be inserted right after start, which is also end.
+2. end was decreased, which means searched number is less than nums[mid], when mid = start = mid, So searched number needs to be inserted at start 
+and moving every number after it to right by 1.
 
-Earlier start and end must have been equal.
-
-So if start was increased, it means searched number needs to be inserted right after end, which is start.
-
-Otherwise If end was decreased further it means searched number is less than nums[mid], when mid = start = mid.
-So searched number needs to be inserted at start and moving every number after it to right by 1.
+Still not very clear..
 */
 
 #include "everything.h"
