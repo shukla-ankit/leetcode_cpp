@@ -5,7 +5,8 @@ Please use following to build and run the code:
 
 build.sh source/<filename>.cpp
 
-HOW WILL I SOLVE PROBLEMS
+
+## HOW WILL I SOLVE PROBLEMS
 1. Consistent -  Leetcode 3 hours everyday after I wake up.
 2. Active improvement - If brain doesn't work, take a break.
 3. Time myself - Spend 5 minutes thinking before writing code.
@@ -14,3 +15,15 @@ HOW WILL I SOLVE PROBLEMS
 6. Study top solutions for improvement
 7. Focus on readability and simplicity
 
+
+## USAGE:
+
+1. Create C++ Problem code using :
+```
+     ./create.sh "##. Problem Name"
+```
+
+2. Run code using :
+```
+     ./make.sh <filename.cpp>
+```

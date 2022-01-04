@@ -6,6 +6,7 @@
 #include <climits>
 #include <ostream>
 #include <algorithm>
+#include <type_traits>
 using namespace std;
 
 namespace Color {
@@ -37,11 +38,26 @@ Color::Modifier def(Color::FG_DEFAULT);
         template <typename T>
         string print_array(vector<T> array){
             string ret = "[" ;
-            for(auto n: array)
-                ret += to_string(n) + ",";
-            return ret.substr(0, ret.length()-1) + "]" ;
+            for(auto n: array){
+                    ret += to_string(n) + ",";
+            }
+            if(array.size() > 0)
+                ret = ret.substr(0, ret.length()-1);
+            return ret + "]" ;
         }
         
+        template <>
+        string print_array(vector<string> array){
+            string ret = "[" ;
+            for(auto n: array){
+                    ret += n + ",";
+            }
+            if(array.size() > 0)
+                ret = ret.substr(0, ret.length()-1);
+            return ret + "]" ;
+        }
+        
+
         template <typename T>
         string print_array_of_arrays(vector<vector<T>> arrayOfArrays){
             string ret = "[" ;
