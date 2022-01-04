@@ -4,10 +4,10 @@ name=`echo $1 | cut -d '.' -f2`
 zeroes=""
 if [ "${#num}" == "1" ] 
 then
-    zeroes="_0000"
+    zeroes="_000"
 elif [ "${#num}" == "2" ]
 then
-    zeroes="_000"
+    zeroes="_00"
 elif [ "${#num}" == "3" ]
 then
    zeroes="_0"
