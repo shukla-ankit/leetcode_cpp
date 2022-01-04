@@ -1,4 +1,15 @@
 //LeetCode Problem 3 - Longest Substring Without Repeating Characters
+/*
+1. Create a map of characters to index of their last occurence
+2. Create a variable for current substring's start index and another variable for 
+length of longest substring  
+3. Parse the string
+4. 	If find a new char, add it to map. 
+	
+	If already exists, Check if its index is before Start of current substring
+
+*/
+
 #include "everything.h"
 struct Test{
     string Input;
@@ -14,9 +25,11 @@ public:
 			if (mapCharToLastOccurIndex.find(s[i]) == mapCharToLastOccurIndex.end())
 				mapCharToLastOccurIndex[s[i]] = i;
 			else{
-				if (lenOfLongestStr < i - start)
-					lenOfLongestStr = i - start;
-				start = start > mapCharToLastOccurIndex[s[i]] + 1 ? start : mapCharToLastOccurIndex[s[i]] + 1;
+				if( start <= mapCharToLastOccurIndex[s[i]]){
+					if (lenOfLongestStr < i - start)
+						lenOfLongestStr = i - start;
+					start = mapCharToLastOccurIndex[s[i]]+1;
+				}
 				mapCharToLastOccurIndex[s[i]] = i;
 			}
 		}

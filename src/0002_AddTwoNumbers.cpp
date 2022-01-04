@@ -1,4 +1,14 @@
 //LeetCode Problem 2 - 	Add Two Numbers
+/*
+1. create two pointers to parse the two lists and one to parse solution list
+2. Create a head pointer for solution list and an Carry variable
+3. Parse two lists and keep adding node to solution list while adding and updating carry values.
+4. If one of the list ends, add remaining elements of other list with Carry.
+5. If Carry remains, add it to solution list.
+
+*/
+
+
 #include "everything.h"
 
 struct ListNode {

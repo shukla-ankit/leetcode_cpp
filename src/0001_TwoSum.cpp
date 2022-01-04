@@ -1,4 +1,13 @@
 //LeetCode Problem 1 - Two Sum
+
+/*
+
+1. Create a map from number to its index
+2. When adding a number, check if its complement (target - num) exists in map
+3. If find complement, return complements index and current index
+
+*/
+
 #include "everything.h"
 struct input{
 	vector<int> nums;
