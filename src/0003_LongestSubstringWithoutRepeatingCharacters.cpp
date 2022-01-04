@@ -4,10 +4,12 @@
 2. Create a variable for current substring's start index and another variable for 
 length of longest substring  
 3. Parse the string
-4. 	If find a new char, add it to map. 
-	
-	If already exists, Check if its index is before Start of current substring
-
+	a. If find a new char, add it to map. 
+	b. If char already exists, Check if its index is after Start of current substring
+		If yes, check if current length of substring is longer than longestSubstrlength
+				If yes, then update
+			Update start index to next previous index of current character
+		Update index of current character in map
 */
 
 #include "everything.h"
