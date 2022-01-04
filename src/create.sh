@@ -4,16 +4,16 @@ name=`echo $1 | cut -d '.' -f2`
 zeroes=""
 if [ "${#num}" == "1" ] 
 then
-    zeroes="_0"
+    zeroes="_0000"
 elif [ "${#num}" == "2" ]
 then
-    zeroes="_"
-#elif [ "${#num}" == "3" ]
-#then
-#    zeroes="0"
-#elif [ "${#num}" == "4" ]
-#then
-#    zeroes=""
+    zeroes="_000"
+elif [ "${#num}" == "3" ]
+then
+   zeroes="_0"
+elif [ "${#num}" == "4" ]
+then
+   zeroes="_"
 fi
 cppFileName=$zeroes`echo $num"_"${name// /}".cpp"`
 echo $cppFileName" created!"
