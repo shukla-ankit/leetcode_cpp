@@ -14,7 +14,7 @@ Earlier start and end must have been equal.
 
 So if start was increased, it means searched number needs to be inserted right after end, which is start.
 
-If end was decreased further it means searched number is less than nums[mid], when mid = start = mid.
+Otherwise If end was decreased further it means searched number is less than nums[mid], when mid = start = mid.
 So searched number needs to be inserted at start and moving every number after it to right by 1.
 */
 
