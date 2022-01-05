@@ -3,6 +3,8 @@
 Problem is there are two many rules.
 Keep them separate..
 Doing it all in one for loops with boolean checks messes things up!!
+
+Also, take care of INT_MIN and INT_MAX limits
 */
 #include "everything.h"
 using namespace std;
