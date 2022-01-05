@@ -1,4 +1,15 @@
 //LeetCode Problem 7 - Reverse Integer
+/*
+1. Create return variable REV = 0
+2. Check sign IsPositive? and get absolute value: N = ABS(N)
+3. Iterate over number unless it is ZERO
+    if (INT_MAX / 10 >= REV && INT_MAX % 10 > N % 10)
+        REV = 10 * REV + N % 10
+    else
+        return 0
+4. If IsPositive is False, check INT_MIN bound, and retrun -1 * REV
+*/
+
 #include "everything.h"
 class Solution {
     public:
