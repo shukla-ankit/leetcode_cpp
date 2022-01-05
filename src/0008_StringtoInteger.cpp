@@ -1,4 +1,9 @@
 //LeetCode Problem 8 - String to Integer
+/*
+Problem is there are two many rules.
+Keep them separate..
+Doing it all in one for loops with boolean checks messes things up!!
+*/
 #include "everything.h"
 using namespace std;
 struct Test
