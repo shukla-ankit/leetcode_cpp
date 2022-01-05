@@ -2,11 +2,12 @@
 /*
 1. Create return variable REV = 0
 2. Check sign IsPositive? and get absolute value: N = ABS(N)
-3. Iterate over number unless it is ZERO
+3. Iterate over number unless it is ZERO and update REV while taking care of not going beyond INT_MAX
     if (INT_MAX / 10 >= REV && INT_MAX % 10 > N % 10)
-        REV = 10 * REV + N % 10
-    else
         return 0
+    else
+        REV = 10 * REV + N % 10
+    N = N / 10
 4. If IsPositive is False, check INT_MIN bound, and retrun -1 * REV
 */
 
