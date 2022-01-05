@@ -1,13 +1,4 @@
 //LeetCode Problem 30 - Substring with Concatenation of All Words
-/*
-1. If words list is empty or s is shorter than concatenation of all words, return empty
-2. Parse words list and create a words to frequency map. Also count total words count.
-3. Parse through s string
-    a. take a substring from i of length wl = words[0].length()
-    b. 
-*/
-
-
 #include "everything.h"
 
 struct Input{
@@ -21,11 +12,8 @@ struct Test{
 class Solution {
     public:
         vector<int> method(string s, vector<string>& words, vector<int> outVec = {}) {   
-                
-        }
-
-        vector<int> method3(string s, vector<string>& words, vector<int> outVec = {}) {   
             if(s.empty() || words.size() == 0)  return outVec;
+
             map<int, string> mapIndexToWord;
             int min_index = s.length();
             string t = s;
@@ -38,13 +26,16 @@ class Solution {
                 else
                     return outVec;
             }
+
             if(words.size() != mapIndexToWord.size()) return outVec;
             
             for(int i = min_index; i<words.size(); i+= words[0].length()){
                 if(mapIndexToWord.find(i) == mapIndexToWord.end())
                     return outVec;                        
             }
+
             outVec.push_back(min_index);
+
             return method(s.substr(min_index+words[0].length()), words);            
         }
 
@@ -64,12 +55,12 @@ class Solution {
 
             }
 
-            /*if(words.size() != mapIndexToWord.size()) return outVec;
+            if(words.size() != mapIndexToWord.size()) return outVec;
             
             for(int i = min_index; i<words.size(); i+= words[0].length()){
                 if(mapIndexToWord.find(i) == mapIndexToWord.end())
                     return outVec;                        
-            }*/
+            }
 
             outVec.push_back(min_index);
 
@@ -88,18 +79,18 @@ class Solution {
 int main() {
     Solution sol;
     vector<Test> vecTests = {
-        { .input={.s="barfoothefoobarman",.words={"foo","bar"}}, .output={0,9}},
-        { .input={.s="barfoofoobarthefoobarman",.words={"bar","foo","the"}}, .output={6,9,12}},
         { .input={.s="",.words={}}, .output={}},
         { .input={.s="",.words={"foo","bar"}}, .output={}},
-        { .input={.s="barfoothefoobarman",.words={}}, .output={}},
+        { .input={.s="barfoothefoobarman",.words={}}, .output={}},        
+        { .input={.s="barfoothefoobarman",.words={"foo","bar"}}, .output={0,9}},
         { .input={.s="wordgoodgoodgoodbestword",.words={"word","good","best","word"}}, .output={}},
+        { .input={.s="barfoofoobarthefoobarman",.words={"bar","foo","the"}}, .output={6,9,12}},
     };
     int count = 0;
     for(auto test: vecTests){        
         vector<int> output = sol.findSubstring(test.input.s, test.input.words);
         bool bIsPass = match_array<int>(output, test.output);
-        cout << "Test #" << ++count << " : Input = {\"" + test.input.s + "\"," <<  print_array<string>(test.input.words) << "}, Output = " << print_array<int>(output) << ". Result : " <<  (bIsPass? green : red) << (bIsPass? "Pass" : "Fail") << "!" << def << endl;
+        cout << "Test #" << ++count << " : Input = {" << test.input.s <<"," <<  print_array<string>(test.input.words) << "}, Output = " << print_array<int>(output) << ". Result : " <<  (bIsPass? green : red) << (bIsPass? "Pass" : "Fail") << "!" << def << endl;
     }
 	return 0;
 }
@@ -111,3 +102,4 @@ Leetcode Method:
 
 -----------------------------------------------------------------------------------------------------------
 */
+

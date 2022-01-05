@@ -8,7 +8,7 @@ length of longest substring
 	b. If char already exists, Check if its index is after Start of current substring
 		If yes, check if current length of substring is longer than longestSubstrlength
 				If yes, then update
-			Update start index to next previous index of current character
+			Update start index to previous index of current character + 1
 		Update index of current character in map
 */
 
