@@ -1,4 +1,4 @@
 git add .
-git commit -m "."
+git commit -m "added explanation"
 git push
 

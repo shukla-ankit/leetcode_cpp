@@ -7,7 +7,7 @@ Examples "edcbaabcde" <- Even length, "edcba0abcde" <- odd length
 1. Parse the string and at each char check largest possible palindrom with 
 current character as center
 2. TO do that, write a function to find largest palindrome with given left and right indices. 
-3. Keep decreasing left and increasing right, if conditions satisfy. When fail return substring.
+3. Keep decreasing left and increasing right, if s[left] == s[right]. When fail return substring.
 
 4. Maintain longest palindrome variable and compare with new found palindomes. Update if a longer 
 palindrome is found.
@@ -20,16 +20,16 @@ struct Test{
 };
 class Solution {
     public:
-    string longestPalindrome(string s, int start, int end) {
-        if( start > end 
-            || start < 0 && end > s.length() - 1 
-            || s[start] != s[end]) 
+    string longestPalindrome(string s, int left, int right) {
+        if( left > right 
+            || left < 0 && right > s.length() - 1 
+            || s[left] != s[right]) 
             return "";
         
-        while(start > 0 && end < s.length() - 1 && s[start - 1] == s[end + 1]){
-            start--; end++;
+        while(left > 0 && right < s.length() - 1 && s[left - 1] == s[right + 1]){
+            left--; right++;
         }
-        return s.substr(start, end-start + 1);
+        return s.substr(left, right-left + 1);
     }
 
     string longestPalindrome(string s) {
