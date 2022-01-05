@@ -1,4 +1,18 @@
 //LeetCode Problem 5 - Longest Palindromic Substring
+/*
+
+Palindromes are created by starting from middle and adding same character to left and right
+Examples "edcbaabcde" <- Even length, "edcba0abcde" <- odd length
+
+1. Parse the string and at each char check largest possible palindrom with 
+current character as center
+2. TO do that, write a function to find largest palindrome with given left and right indices. 
+3. Keep decreasing left and increasing right, if conditions satisfy. When fail return substring.
+
+4. Maintain longest palindrome variable and compare with new found palindomes. Update if a longer 
+palindrome is found.
+*/
+
 #include "everything.h"
 struct Test{
     string Input;
