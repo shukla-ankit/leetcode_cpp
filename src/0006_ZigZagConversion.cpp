@@ -1,4 +1,16 @@
 //LeetCode Problem 6 - ZigZag Conversion
+/*
+1. When creating a zigzag pattern with S string and N rows
+2. Begin from 0th row by adding every (2N-1)th character starting from 0 
+3. Iterate over rows from 1 to n -2, and then iterate over repeat index k
+
+    going down added char will be s[ 2*(N-1)*repeat_idx + row_idx ];
+    coming up string char be s[ 2*(N-1)*(repeat_idx+1) - row_idx]
+
+    Break the loop when indices exceed the length of the string
+6. Lastly for (n-1)th row, add every (2N-1)th character starting from N-1
+*/
+
 #include "everything.h"
 struct input{
     string text;
@@ -13,23 +25,23 @@ class Solution {
         string convert(string s, int numRows) {
             if(numRows == 1) return s;
             string converted;            
-            for (int i=0; i< s.length(); i+= 2*(numRows -1)){
-                converted += s[i];
+            for (int row_idx=0; row_idx< s.length(); row_idx+= 2*(numRows -1)){
+                converted += s[row_idx];
             }
-            for (int i = 1; i < numRows-1 && numRows > 2; i++){
+            for (int row_idx = 1; row_idx < numRows-1; row_idx++){
                 for (int k = 0; k < s.length()/2*(numRows-1); k++){
-                    if(s.length() > 2*(numRows-1)* k   + i) 
-                        converted += s[ 2*(numRows-1)*k + i ];
+                    if(s.length() > 2*(numRows-1)* k   + row_idx) 
+                        converted += s[ 2*(numRows-1)*k + row_idx ];
                     else
                         break;
-                    if(s.length() > 2*(numRows-1)*(k+1)- i) 
-                        converted += s[ 2*(numRows-1)*(k+1) - i ];
+                    if(s.length() > 2*(numRows-1)*(k+1)- row_idx) 
+                        converted += s[ 2*(numRows-1)*(k+1) - row_idx ];
                     else
                         break;
                 }
             }
-            for(int i = numRows-1; i < s.length(); i+= 2*(numRows -1)){
-                converted += s[i];
+            for(int row_idx = numRows-1; row_idx < s.length(); row_idx+= 2*(numRows -1)){
+                converted += s[row_idx];
             }
             return converted;
         }

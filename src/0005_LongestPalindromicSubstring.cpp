@@ -2,7 +2,7 @@
 /*
 
 Palindromes are created by starting from middle and adding same character to left and right
-Examples "edcbaabcde" <- Even length, "edcba0abcde" <- odd length
+Examples "abcdeedcba" <- Even length, "abcdedcba" <- odd length
 
 1. Parse the string and at each char check largest possible palindrom with 
 current character as center
