@@ -15,12 +15,12 @@ L1 <= R1, L2 <= R2 (default ensured as array sorted)
 L2 <= R1, L1 <= R2 (needs to be checked)
 
 0. low = 0, high = n2 -1         (when  n2 < n1)
-1. start with C2 = (low + high)/2
-2. C1 = N1 + N2 - C2
+1. start with mid2 = (low + high)/2
+2. mid1 = N1 + N2 - mid2
 
-3.  L1 = (C1 -1)/2, L2 = (C2 -1)/2, R1 = C1/2, R2 = C2/2
-4.  if L1 > R2, low = c2 + 1
-    or if L2 > R1, high = c2 - 1
+3.  L1 = (mid1 -1)/2, L2 = (mid2 -1)/2, R1 = mid1/2, R2 = mid2/2
+4.  if L1 > R2, low = mid2 + 1
+    or if L2 > R1, high = mid2 - 1
     else if L1 <= R2 and L2 <= R1, return ( max(L1,L2) + min(R1, R2) )/2 
 5. repeat from step 0 
 
@@ -35,13 +35,10 @@ struct Test{
 };
 class Solution {
     public:
-        double findMedianSortedArrays1(vector<int>& nums1, vector<int>& nums2){
-        }
-
-        double findMedianSortedArrays2(vector<int>& nums1, vector<int>& nums2) {
+        double findMedianSortedArrays(vector<int>& nums1, vector<int>& nums2) {
             int N1 = nums1.size();
             int N2 = nums2.size();
-            if (N1 < N2) return findMedianSortedArrays2(nums2, nums1);	// Make sure A2 is the shorter one.
+            if (N1 < N2) return findMedianSortedArrays(nums2, nums1);	// Make sure A2 is the shorter one.
             
             int lo = 0, hi = N2 * 2;
             while (lo <= hi) {
@@ -53,8 +50,8 @@ class Solution {
                 double R1 = (mid1 == N1 * 2) ? INT_MAX : nums1[(mid1)/2];
                 double R2 = (mid2 == N2 * 2) ? INT_MAX : nums2[(mid2)/2];
                 
-                if (L1 > R2) lo = mid2 + 1;		// A1's lower half is too big; need to move C1 left (C2 right)
-                else if (L2 > R1) hi = mid2 - 1;	// A2's lower half too big; need to move C2 left.
+                if (L1 > R2) lo = mid2 + 1;		// A1's lower half is too big; need to move mid1 left (mid2 right)
+                else if (L2 > R1) hi = mid2 - 1;	// A2's lower half too big; need to move mid2 left.
                 else return (max(L1,L2) + min(R1, R2)) / 2;	// Otherwise, that's the right cut.
             }
             return -1;
