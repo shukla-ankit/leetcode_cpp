@@ -1,6 +1,10 @@
 //LeetCode Problem 167 - Two Sum II - Input Array Is Sorted
 #include "everything.h"
-
+/*
+Shifting window problem.
+1. As array is sorted target can be found by shifting left and right and checking 
+nums[left] + nums[right] > target or less
+*/
 struct input{
 	vector<int> nums;
 	 int target;
