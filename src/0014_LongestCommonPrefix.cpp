@@ -1,4 +1,8 @@
 //LeetCode Problem 14 - Longest Common Prefix
+/*
+See longestCommonPrefix1 
+*/
+
 #include "everything.h"
 using namespace std;
 
@@ -8,6 +12,17 @@ struct Test{
 };
 class Solution {
     public:
+        string longestCommonPrefix1(vector<string>& strs) {
+            int l = 0;
+            while(l < strs[0].length()){
+                for(int i = 1; i < strs.size(); i++){
+                    if(strs[i].length() < l || strs[i][l] != strs[0][l])
+                        return strs[0].substr(0,l);
+                }
+                l++;
+            }
+            return strs[0].substr(0,l);
+        }
         string method(vector<string>& strs){
             string prefix;
             if(strs.size() != 0 || strs[0].length() != 0){                
