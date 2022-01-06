@@ -1,4 +1,11 @@
 //LeetCode Problem 11 - Container With Most Water
+/*
+Shifting window problem
+1. set left = 0, right = arr.size() -1, max_area = 0, cur_area = 0
+2. move the side which has less height as it is the one bring total area down
+3. Keep comparing and updating max_area 
+*/
+
 #include "everything.h"
 using namespace std;
 
