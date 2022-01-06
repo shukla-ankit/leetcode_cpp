@@ -1,6 +1,13 @@
 //LeetCode Problem 19 - Remove Nth Node From End of List
 #include "everything.h"
 
+/*
+Parse the list and count nodes
+subtract n from the count and parse nodes again for (count -n ) nodes. Keeping a prev pointer
+Alter the next in previous. Take care if it is start node.
+
+*/
+
 struct ListNode {
     int val;
     ListNode *next;
