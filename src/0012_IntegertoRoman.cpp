@@ -1,4 +1,12 @@
 //LeetCode Problem 12 - Integer to Roman
+/*
+1. Create a map from int to roman numbers
+2. Parse given number from units place to above by current_num = num % 10 and num /=10 to iterate.
+3. Also maintain a counter to identify which unit's place in the number (i.e. div)
+4. Keep looking up and adding in begining of return string. Repeat when repeatition required.
+*/
+
+
 #include "everything.h"
 using namespace std;
 

@@ -1,4 +1,11 @@
 //LeetCode Problem 13 - Roman to Integer
+/*
+1. maintain a previous character var and current char var.
+2. Keep adding mapped value of current char to return value
+3. If mapped value of previous char < mapped value of current char,
+ subtract 2 * mapped value of previous char from total return value 
+*/
+
 #include "everything.h"
 using namespace std;
 
