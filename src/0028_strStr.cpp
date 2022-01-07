@@ -15,7 +15,7 @@ public:
         if ( needle == "" ) return 0;
         else if( needle.size() > haystack.size()) return -1;
 
-		for(int i = 0; i <= haystack.size() - needle.size(); i++){
+		for(int i = 0; i <= haystack.size() - needle.size() + 1; i++){
 			if(haystack[i] != needle[0])  continue;
 			else{				
 				bool bMatch = true;
