@@ -78,6 +78,16 @@ Color::Modifier def(Color::FG_DEFAULT);
             return ret;
         }
 
+        void print(ListNode* head){
+            std::cout << "List :";
+            while(head){
+                std::cout << head->val << " -> ";
+                head = head->next;
+            }
+            std:cout << "0" << endl;
+        }
+
+
         template <>
         string print_array(vector<string> array){
             string ret = "[" ;
