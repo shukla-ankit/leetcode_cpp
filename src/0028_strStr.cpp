@@ -4,10 +4,7 @@
 	just read the code!
 */
 
-#include <iostream>
-#include <vector>
-#include <string>
-using namespace std;
+#include "everything.h"
 
 class Solution {
 public:
@@ -36,15 +33,15 @@ public:
 };
 
 int main(){
-		vector<string> haystack = {"hello", "aaaaa", "","a"}, needle = {"ll", "bba", "","a"};
+		vector<string> haystack = {"hello", "aaaaa", "","a"}, needle = {"ll", "bba", "","a"}; 
+		vector<int> results = {2, -1, 0, 0};
 		vector<int> ret;
 				
 		Solution s;
 		for(int i = 0; i < haystack.size(); i++){
 				ret.push_back(s.strStr(haystack[i], needle[i]));
-				cout << "haystack = '" << haystack[i]
-						<< "', needle = '" << needle[i]
-						<< "', returns = " << ret[i] << endl;
+			   	bool bIsPass = ret[i] == results[i];
+        		cout << "Test #" << i+1 << " : Input : haystack = " << haystack[i] << " needle=" << needle[i] << ", Output = " << ret[i] << ". Result : " <<  (bIsPass? green : red) << (bIsPass? "Pass" : "Fail") << "!" << def << endl;
 		}
 		
 		return 0;
