@@ -7,6 +7,20 @@ struct Test{
 };
 class Solution {
     public:
+        vector<int> twoSumII(vector<int>& nums, int target) {
+        int left = 0, right = nums.size() -1;
+        while(nums[left] + nums[right] != target && left < right){
+            if(nums[left] + nums[right] > target)
+                right--;
+            else
+                left++;
+        }
+        if(left == right)
+            return {0, 0};
+        else
+            return {left, right};
+    }
+
         vector<vector<int>> threeSum(vector<int>& nums) {
             
         }

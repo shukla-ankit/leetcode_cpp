@@ -1,4 +1,8 @@
 //LeetCode Problem 28 - Implement strStr()
+/*
+	really good solution..
+	just read the code!
+*/
 
 #include <iostream>
 #include <vector>
@@ -12,7 +16,7 @@ public:
         else if( needle.size() > haystack.size()) return -1;
 
 		for(int i = 0; i <= haystack.size() - needle.size(); i++){
-			if(haystack[i] != needle[0])  continue;			
+			if(haystack[i] != needle[0])  continue;
 			else{				
 				bool bMatch = true;
 				int k = i;
