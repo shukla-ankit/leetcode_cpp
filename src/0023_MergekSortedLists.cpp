@@ -12,14 +12,6 @@ merge every i-th array array with (i+1) array and then erase the (i+1)-th item f
 
 #include "everything.h"
 
-struct ListNode {
-    int val;
-    ListNode *next;
-    ListNode() : val(0), next(nullptr) {}
-    ListNode(int x) : val(x), next(nullptr) {}
-    ListNode(int x, ListNode *next) : val(x), next(next) {}
-};
-
 struct Test{
     vector<vector<int>> nums;
     vector<int> output;
@@ -27,30 +19,6 @@ struct Test{
 
 class Solution {
     public:
-        ListNode* CreateList(vector<int> nums){
-        ListNode *ret = nullptr, *ptr = nullptr;
-        for(auto n : nums){
-            if(ret == nullptr){
-                ret = new ListNode(n);
-                ptr = ret;
-            }
-            else{
-                ptr -> next = new ListNode(n);
-                ptr = ptr->next;
-            }
-        }
-        return ret;
-    }
-    
-    vector<int> ConvertToArray(ListNode* head){
-        vector<int> ret;
-        while(head){
-            ret.push_back(head->val);
-            head = head -> next;
-        }
-        return ret;
-    }
-
     ListNode* mergeKLists(vector<ListNode*>& lists) {
         if(lists.empty()) return nullptr;
             
@@ -130,9 +98,9 @@ int main() {
     for(auto test: vecTests){
         vector<ListNode*> t;
         for(auto x : test.nums){
-            t.push_back(sol.CreateList(x));
+            t.push_back(CreateList(x));
         }
-        auto output = sol.ConvertToArray(sol.mergeKLists(t));
+        auto output = ConvertToArray(sol.mergeKLists(t));
         bool bIsPass = match_array(output,test.output);
         cout << "Test #" << ++count << " : Input = " << print_array_of_arrays(test.nums) << ", Output = " << print_array(output) << ". Result : " <<  (bIsPass? green : red) << (bIsPass? "Pass" : "Fail") << "!" << def << endl;
     }

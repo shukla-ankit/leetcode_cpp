@@ -6,14 +6,6 @@ Simple merge
 
 #include "everything.h"
 
-struct ListNode {
-    int val;
-    ListNode *next;
-    ListNode() : val(0), next(nullptr) {}
-    ListNode(int x) : val(x), next(nullptr) {}
-    ListNode(int x, ListNode *next) : val(x), next(next) {}
-};
-
 struct Test{
     vector<int> nums1;
     vector<int> nums2;
@@ -22,30 +14,6 @@ struct Test{
 
 class Solution {
     public:
-        ListNode* CreateList(vector<int> nums){
-        ListNode *ret = nullptr, *ptr = nullptr;
-        for(auto n : nums){
-            if(ret == nullptr){
-                ret = new ListNode(n);
-                ptr = ret;
-            }
-            else{
-                ptr -> next = new ListNode(n);
-                ptr = ptr->next;
-            }
-        }
-        return ret;
-    }
-    
-    vector<int> ConvertToArray(ListNode* head){
-        vector<int> ret;
-        while(head){
-            ret.push_back(head->val);
-            head = head -> next;
-        }
-        return ret;
-    }
-
     ListNode* mergeTwoLists(ListNode* list1, ListNode* list2) {
         ListNode *head = nullptr, *cur = nullptr;
         while(list1 && list2){
@@ -111,7 +79,7 @@ int main() {
     };
     int count = 0;
     for(auto test: vecTests){        
-        auto output = sol.ConvertToArray(sol.mergeTwoLists(sol.CreateList(test.nums1), sol.CreateList(test.nums2)));
+        auto output = ConvertToArray(sol.mergeTwoLists(CreateList(test.nums1), CreateList(test.nums2)));
         bool bIsPass = match_array(output,test.output);
         cout << "Test #" << ++count << " : Input = " << print_array(test.nums1) + print_array(test.nums2) << ", Output = " << print_array(output) << ". Result : " <<  (bIsPass? green : red) << (bIsPass? "Pass" : "Fail") << "!" << def << endl;
     }

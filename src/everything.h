@@ -46,6 +46,38 @@ Color::Modifier def(Color::FG_DEFAULT);
             return ret + "]" ;
         }
         
+        struct ListNode {
+            int val;
+            ListNode *next;
+            ListNode() : val(0), next(nullptr) {}
+            ListNode(int x) : val(x), next(nullptr) {}
+            ListNode(int x, ListNode *next) : val(x), next(next) {}
+        };
+
+        ListNode* CreateList(vector<int> nums){
+            ListNode *ret = nullptr, *ptr = nullptr;
+            for(auto n : nums){
+                if(ret == nullptr){
+                    ret = new ListNode(n);
+                    ptr = ret;
+                }
+                else{
+                    ptr -> next = new ListNode(n);
+                    ptr = ptr->next;
+                }
+            }
+            return ret;
+        }
+
+        vector<int> ConvertToArray(ListNode* head){
+            vector<int> ret;
+            while(head){
+                ret.push_back(head->val);
+                head = head -> next;
+            }
+            return ret;
+        }
+
         template <>
         string print_array(vector<string> array){
             string ret = "[" ;
