@@ -1,4 +1,9 @@
 //LeetCode Problem 21 - Merge Two Sorted Lists
+
+/*
+Simple merge
+*/
+
 #include "everything.h"
 
 struct ListNode {
