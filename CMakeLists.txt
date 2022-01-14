@@ -5,8 +5,6 @@ set(CMAKE_C_STANDARD 99)
 
 include_directories(include)
 
-file(GLOB SOURCE "src/*.cpp")
-
 add_executable(0001_TwoSum src/0001_TwoSum.cpp)
 add_executable(0002_AddTwoNumbers src/0002_AddTwoNumbers.cpp)
 add_executable(0003_LongestSubstringWithoutRepeatingCharacters src/0003_LongestSubstringWithoutRepeatingCharacters.cpp)
