@@ -11,15 +11,15 @@
 
 #include "everything.h"
 
-struct ListNode {
-    int val;
-    ListNode *next;
-    ListNode(int x) : val(x), next(NULL) {}
-    ~ListNode(){
-        if(next)
-            next->~ListNode();        
-    }
-};
+//struct ListNode {
+//    int val;
+//    ListNode *next;
+//    ListNode(int x) : val(x), next(NULL) {}
+//    ~ListNode(){
+//        if(next)
+//            next->~ListNode();
+//    }
+//};
 
 ListNode* addTwoNumbers(ListNode* l1, ListNode* l2) {
     ListNode *head = nullptr, *temp = nullptr;

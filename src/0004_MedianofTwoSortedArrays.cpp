@@ -70,7 +70,7 @@ int main() {
     };
     Solution sol;
     for(auto t: vecTests){
-        cout << sol.findMedianSortedArrays2(t.nums1, t.nums2) << endl;
+        cout << sol.findMedianSortedArrays(t.nums1, t.nums2) << endl;
     }    
 	return 0;
 }

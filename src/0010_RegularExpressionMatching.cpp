@@ -24,17 +24,17 @@ class Solution {
                         cWildCardMatchChar = p[j-1];
                     if(cWildCardMatchChar == '.'){
                         // remains
-                        cout << ".* case" << endl;
+                        //cout << ".* case" << endl;
                         break;
                     }
                     else if(cWildCardMatchChar == s[i]){
-                        cout << "start N occurence * case" << endl;
+                        //cout << "start N occurence * case" << endl;
                         i++;    // * causes N occurences of cWildCardMatchChar
                     }
                     else{
                         cWildCardMatchChar = '\0';
                         j++;     // * causes end of cWildCardMatchChar matching
-                        cout << "end N occurence * case" << endl;
+                        //cout << "end N occurence * case" << endl;
                     }
                 }
                 else if(j < p.size() -1 && p[j+1] == '*'){

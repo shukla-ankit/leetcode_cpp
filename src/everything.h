@@ -9,6 +9,8 @@
 #include <type_traits>
 using namespace std;
 
+#ifndef __EVERYTHING__H
+#define __EVERYTHING__H
 namespace Color {
     enum Code {
         FG_RED      = 31,
@@ -131,3 +133,4 @@ Color::Modifier def(Color::FG_DEFAULT);
             }
             return true;
         }
+#endif // __EVERYTHING__H
