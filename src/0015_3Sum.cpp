@@ -7,26 +7,32 @@ struct Test{
 };
 class Solution {
     public:
-        vector<int> twoSumII(vector<int>& nums, int target) {
-        int left = 0, right = nums.size() -1;
-        while(nums[left] + nums[right] != target && left < right){
-            if(nums[left] + nums[right] > target)
-                right--;
-            else
-                left++;
+    vector<vector<int>> threeSum(vector<int>& nums) {
+        int n = nums.size();
+        if (n < 3) return {};
+        vector<vector<int>> result;
+        sort(nums.begin(), nums.end());
+        for (int i = 0; i < n - 2; i++) {
+            if (i == 0 || nums[i] != nums[i - 1]) {
+                int j = i + 1, k = n - 1;
+                while (j < k) {
+                    int sum = nums[i] + nums[j] + nums[k];
+                    if (sum == 0) {
+                        result.push_back({nums[i], nums[j], nums[k]});
+                        while (j < k && nums[j] == nums[j + 1]) j++;
+                        while (j < k && nums[k] == nums[j - 1]) k--;
+                        j++;
+                        k--;
+                    }
+                    else if (sum > 0) k--;
+                    else j++;
+                }
+            }
         }
-        if(left == right)
-            return {0, 0};
-        else
-            return {left, right};
+        return result;
     }
-
-        vector<vector<int>> threeSum(vector<int>& nums) {
-            
-        }
-        void leetcode_solution(){
-        }
 };
+
 int main() {
     Solution sol;
     vector<Test> vecTests = {
