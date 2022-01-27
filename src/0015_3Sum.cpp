@@ -8,7 +8,6 @@
  * which gives O(n^2)
  * */
 
-
 struct Test{
     vector<int> input;
     vector<vector<int>> output;
@@ -29,7 +28,7 @@ class Solution {
                     if (sum == 0) {
                         result.push_back({nums[i], nums[j], nums[k]});
                         while (j < k && nums[j] == nums[j + 1]) j++; //Avoid repeatition in j
-                        while (j < k && nums[k] == nums[j - 1]) k--; //Avoid repeatition in k
+                        while (j < k && nums[k] == nums[k - 1]) k--; //Avoid repeatition in k
                         j++;
                         k--;
                     }
