@@ -1,5 +1,10 @@
 //LeetCode Problem 16 - 3Sum Closest
 #include "everything.h"
+/*
+ * Keep it simple
+ * Unlike ThreeSum Problem, don't worry about repeating values in i, j and k
+ * Only value to be saved is difference or sum
+ */
 
 struct Test{
     vector<int> input;
@@ -9,7 +14,7 @@ struct Test{
 
 class Solution {
     public:
-    int threeSumClosest(vector<int> nums, int target) {
+    int threeSumClosest1(vector<int> nums, int target) {
         int n = nums.size();
         int sum = nums[0] + nums[1] + nums[n-1];
         sort(nums.begin(), nums.end());
@@ -25,6 +30,29 @@ class Solution {
             }
         }
         return sum;
+    }
+
+    int threeSumClosest2(vector<int>& nums, int target) {
+        int difference = INT_MAX;
+        int n = nums.size();
+        sort(nums.begin(), nums.end());
+
+        for (int i = 0; i < n - 2 && difference != 0; i++) {
+            int j = i + 1, k = n - 1;
+            while (j < k) {
+                int sum = nums[i] + nums[j] + nums[k];
+                if ( abs(target - sum) < abs(difference)) {
+                    difference = target - sum;
+                }
+                if (sum < target) j++;
+                else k--;
+            }
+        }
+        return target - difference;
+    }
+
+    int threeSumClosest(vector<int>& nums, int target){
+        return threeSumClosest2(nums, target);
     }
 };
 
