@@ -1,6 +1,16 @@
 //LeetCode Problem 17 - Letter Combinations of a Phone Number
 #include "everything.h"
 
+/*
+ * Three loops:
+ * First passing over char in digits string
+ * Second loop over strings already added in results, picking one at a time
+ * Third loop taking all mapped characters from map[digits[i]] and adding them one by one
+ * to string picked from second loop.
+ * Update the result for next iteration in first loop
+ * */
+
+
 struct Test{
     string input;
     vector<string> output;
