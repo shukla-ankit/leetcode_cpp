@@ -7,6 +7,7 @@
 #include <ostream>
 #include <algorithm>
 #include <type_traits>
+#include <unordered_map>
 using namespace std;
 
 #ifndef __EVERYTHING__H
