@@ -63,7 +63,7 @@ class Solution {
         int n_divisor = divisor;
         int n_x = 1;
         vector<entry> m;
-        while(n_divisor > dividend){    //condition
+        while(n_divisor >= dividend && - 2 * n_x > INT_MIN){    //condition
             m.push_back({n_divisor, n_x});
             n_divisor = n_divisor + n_divisor;
             n_x = n_x + n_x;
@@ -72,7 +72,7 @@ class Solution {
         n_divisor = m[m.size()-1].n_multiple;
 
         while(!m.empty()){ //condition
-            if(m[m.size()-1].n_multiple > dividend){   //condition
+            if(m[m.size()-1].n_multiple >= dividend){   //condition
                 dividend -= m[m.size()-1].n_multiple;
                 quotient += m[m.size()-1].n_x;
             }
@@ -85,7 +85,9 @@ class Solution {
 int main() {
     Solution sol;
     vector<Test> vecTests = {
+            {.dividend=8, .divisor=2,.output=4 },
             {.dividend=-2147483648, .divisor=-2,.output=1073741824 },
+            {.dividend=-2147483647, .divisor=-2,.output=1073741823 },
             {.dividend=2147483647, .divisor=-2,.output=-1073741823 },
             {.dividend=-2147483648, .divisor=1,.output=-2147483648 },
             {.dividend=10, .divisor=3,.output=3 },
