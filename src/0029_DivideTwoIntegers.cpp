@@ -3,7 +3,12 @@
 /*
 -----------------------------------------------------------------------------------------------------------
 My Method1:
-
+    - Create a multiplication table of divisor
+    - Convert divisor and dividend both negative, while keep a bool to remember quotient sign
+    - Keep subtracting highest multiplication table value from dividend as long as dividend < subtracted value. Once
+        condition fails, delete the highest value from multiplication table and do same with next value until table
+        is empty. Same time keep incrementing quotient with n_x time value of the table.
+    - return quotient
 -----------------------------------------------------------------------------------------------------------
 Leetcode Method:
 
