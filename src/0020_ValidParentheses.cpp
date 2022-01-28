@@ -11,8 +11,6 @@
  *      In end, check length of rem. If rem == "", return true, else return false.
  *
  */
-
-
 #include "everything.h"
 
 struct Test{
