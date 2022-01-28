@@ -3,16 +3,16 @@
 
 /*
  * Approach 1:
-Parse the list and count nodes
-subtract n from the count and parse nodes again for (count -n ) nodes. Keeping a prev pointer
-Alter the next in previous. Take care if it is start node.
-
+ *  Parse the list and count nodes
+ *  subtract n from the count and parse nodes again for (count -n ) nodes. Keeping a prev pointer
+ *  Alter the next in previous. Take care if it is start node.
+ *
  * Approach 2:
- * Parse the list and count nodes
- * If count > n :
+ *  Parse the list and count nodes
+ *  If count > n :
  *      if temp = nullptr, set temp = head, else temp = temp->next
- * if count == n, move head to next and delete head
- * if count > n, delete the node after temp and set temp-> next to temp -> next -> next;
+ *  if count == n, move head to next and delete head
+ *  if count > n, delete the node after temp and set temp-> next to temp -> next -> next;
 */
 
 //struct ListNode {
