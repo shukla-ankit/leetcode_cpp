@@ -1,13 +1,16 @@
 //LeetCode Problem 30 - Substring with Concatenation of All Words
 /*
-1. If words list is empty or s is shorter than concatenation of all words, return empty
-2. Parse words list and create a words to frequency map. Also count total words count.
-3. Parse through s string
-    a. take a substring from i of length wl = words[0].length()
-    b. 
-*/
+    Approach 1:
+        - Create a frequency map of given words list
+        - Compute the sum of chars of every word and compare it with running sum on main string
+        - If matched, take a substring of length words.size() * words[0].length(), cut it into pieces of words[0].length()
+            and create a frequency map
+        - Compare it with frequency map of Step 1 and if they match add it to be the return result vector.
+    (Time Exceeded!)
 
+    Approach 2:
 
+ */
 #include "everything.h"
 
 struct Input{
@@ -20,80 +23,66 @@ struct Test{
 };
 class Solution {
     public:
-        vector<int> method(string s, vector<string>& words, vector<int> outVec = {}) {   
-                
+    unordered_map<string, int> CreateWordFrequencyMap(vector<string> &words){
+        unordered_map<string, int> res;
+        for(int i=0; i < words.size(); i++){
+            if(res.find(words[i]) == res.end())
+                res[words[i]] = 1;
+            else
+                res[words[i]]++;
         }
-
-        vector<int> method3(string s, vector<string>& words, vector<int> outVec = {}) {   
-            if(s.empty() || words.size() == 0)  return outVec;
-            map<int, string> mapIndexToWord;
-            int min_index = s.length();
-            string t = s;
-            for(auto word: words){                
-                if(t.find(word) != string::npos && ( t ==s || (t != s && t.find(word) == 0)) ){
-                    min_index = min_index > t.find(word)? t.find(word) : min_index;
-                    mapIndexToWord[t.find(word)] = word;                    
-                    t = t.substr(min_index,t.length()- min_index);
-                }
-                else
-                    return outVec;
-            }
-            if(words.size() != mapIndexToWord.size()) return outVec;
-            
-            for(int i = min_index; i<words.size(); i+= words[0].length()){
-                if(mapIndexToWord.find(i) == mapIndexToWord.end())
-                    return outVec;                        
-            }
-            outVec.push_back(min_index);
-            return method(s.substr(min_index+words[0].length()), words);            
+        return res;
+    }
+    bool sameMap(unordered_map<string, int> &A, unordered_map<string, int> &B){
+        if(A.size() != B.size())
+            return false;
+        for(auto a : A){
+            if(B.find(a.first) == B.end() || B[a.first] != a.second)
+                return false;
         }
-
-        vector<int> method2(string s, vector<string>& words, vector<int> outVec = {}) {   
-            if(s.empty() || words.size() == 0)  return outVec;
-            
-            int min_index = s.length();
-            for(auto word: words){                
-                if(s.find(word) == string::npos) return outVec;
-                min_index = min_index > s.find(word)? s.find(word) : min_index;                    
-            }
-
-            string t = s.substr(min_index, s.length() - min_index);
-            while(1){
-                string sub = t.substr(words[0].length());
-                
-
-            }
-
-            /*if(words.size() != mapIndexToWord.size()) return outVec;
-            
-            for(int i = min_index; i<words.size(); i+= words[0].length()){
-                if(mapIndexToWord.find(i) == mapIndexToWord.end())
-                    return outVec;                        
-            }*/
-
-            outVec.push_back(min_index);
-
-            return method(s.substr(min_index+words[0].length()), words);            
-        }
-
-
-        vector<int> leetcode_solution(string s, vector<string>& words) {
+        return true;
+    }
+    vector<int> findSubstring(string s, vector<string>& words) {
+        if(words.empty() || s.length() < words.size() * words[0].length())
             return {};
+        vector<int> res;
+        unordered_map<string, int> mapWordCount = CreateWordFrequencyMap(words);
+        int c_sum = 0, current = 0;
+        for(int i=0; i < words.size(); i++){
+            for(int j=0; j<words[0].length(); j++){
+                c_sum += (words[i][j] - 'A');
+            }
         }
-
-        vector<int> findSubstring(string s, vector<string>& words) {
-            return method(s, words);
+        for(int i=0; i < words.size() * words[0].length(); i++){
+            current += (s[i] - 'A');
         }
+        for(int i=0; i <= s.length() - words.size() * words[0].length(); i++){
+            if(i != 0)
+                current += (s[i + words.size() * words[0].length() - 1 ] - s[i-1]);
+            if(current == c_sum){
+                vector<string> c_words;
+                string cur_str  = s.substr(i, words.size() * words[0].length());
+                while(!cur_str.empty()){
+                    c_words.push_back(cur_str.substr(0, words[0].length()));
+                    cur_str = cur_str.substr(words[0].length(), cur_str.length() - words[0].length());
+                }
+                unordered_map<string, int> mapCurWordCount = CreateWordFrequencyMap(c_words);
+                if(sameMap(mapWordCount, mapCurWordCount))
+                    res.push_back(i);
+            }
+        }
+        return res;
+    }
 };
 int main() {
     Solution sol;
     vector<Test> vecTests = {
         { .input={.s="barfoothefoobarman",.words={"foo","bar"}}, .output={0,9}},
         { .input={.s="barfoofoobarthefoobarman",.words={"bar","foo","the"}}, .output={6,9,12}},
+        { .input={.s="wordgoodgoodgoodbestword",.words={"word","good","best","word"}}, .output={}},
         { .input={.s="",.words={}}, .output={}},
         { .input={.s="",.words={"foo","bar"}}, .output={}},
         { .input={.s="barfoothefoobarman",.words={}}, .output={}},
-        { .input={.s="wordgoodgoodgoodbestword",.words={"word","good","best","word"}}, .output={}},
     };
     int count = 0;
     for(auto test: vecTests){        
@@ -103,11 +92,3 @@ int main() {
     }
 	return 0;
 }
-/*
------------------------------------------------------------------------------------------------------------
-method1: <<>>
------------------------------------------------------------------------------------------------------------
-Leetcode Method:
-
------------------------------------------------------------------------------------------------------------
-*/
