@@ -1,9 +1,14 @@
 /*
 LeetCode Problem 31 - Next Permutation
+    Approach:
+    - Think of array values as columns with heights equal to their values
+    - Parse array from right side till you find a peak i.e. left and right values are smaller than current
+    - If peak is at i = 0, this is highest value permutation. Next permutation will be sequence in ascending form.
+        Sort the array in ascending order and return it.
+    - Else, take left foot of peak and swap it with next bigger number on right side. And sort the rest of the sequence
+    from foot+1 to end in ascending order and return the sequence.
 
-Very good problem!!
-Explanation here: https://leetcode.com/problems/next-permutation/solution/
-
+ Explanation here: https://leetcode.com/problems/next-permutation/solution/
 */
 
 #include "everything.h"
@@ -13,6 +18,33 @@ struct Test{
 };
 class Solution {
     public:
+    void swap(int &a, int &b){
+        a = a+b;
+        b = a-b;
+        a = a-b;
+    }
+    void my_NextPermutation(vector<int>& nums) {
+        int foot = nums.size() -2;
+        for(; foot >=0 ; foot--){
+            if(nums[foot] < nums[foot+1])
+                break;
+        }
+        if(foot == -1)
+            return sort(nums.begin(), nums.end());
+
+        int diff = INT_MAX, slightly_more_idx = -1;
+        for(int i = nums.size()-1; i > foot ; i--){
+            int d = nums[i] - nums[foot];
+            if( d > 0 && diff > d){
+                diff = d;
+                slightly_more_idx = i;
+            }
+        }
+
+        cout << foot << " " << slightly_more_idx ;
+        swap(nums[foot], nums[slightly_more_idx]);
+        sort(nums.begin() + foot + 1, nums.end());
+    }
         void nextPermutation2(vector<int>& nums) {
             //Find the ascending peak closest to Lowest Significant Bits
             int i = nums.size()-1;
@@ -56,23 +88,13 @@ int main() {
                                 {.input={3,2,1},.output={1,2,3}},
                                 {.input={1,1,5},.output={1,5,1}},
                                 {.input={1,5,3,4,2},.output={1,5,4,2,3}},
-
                             };
     int count = 0;
     for(auto test: vecTests){
         auto output = test.input;
-        sol.method(output);
+        sol.my_NextPermutation(output);
         bool bIsPass = match_array<int>(test.output, output);
         cout << "Test #" << ++count << " : Input = " << print_array<int>(test.input) << ", Output = " << print_array<int>(output) << ". Result : " <<  (bIsPass? green : red) << (bIsPass? "Pass" : "Fail") << "!" << def << endl;
     }
 	return 0;
 }
-/*
------------------------------------------------------------------------------------------------------------
-method1: <<>>
------------------------------------------------------------------------------------------------------------
-Leetcode Method:
-
------------------------------------------------------------------------------------------------------------
-*/
-
