@@ -48,12 +48,16 @@ class Solution {
 int main() {
     Solution sol;
     vector<Test> vecTests = {};
-    int count = 0;
-    for(auto test: vecTests){        
+    int count = 0, time = 0;
+    for(auto test: vecTests){
+        auto start = high_resolution_clock::now();
         auto output = sol.XXXX(test.input);
+        auto duration = duration_cast<microseconds>(high_resolution_clock::now() - start);
         bool bIsPass = output == test.output;
-        cout << \"Test #\" << ++count << \" : Input = \" << test.input << \", Output = \" << output << \". Result : \" <<  (bIsPass? green : red) << (bIsPass? \"Pass\" : \"Fail\") << \"!\" << def << endl;
+        time += duration.count();
+        cout << \"Test #\" << ++count << \" : Input = \" << test.input << \", Output = \" << output << \", Time taken= \" << duration.count()/1000.0 << \" ms, Result : \" <<  (bIsPass? green : red) << (bIsPass? \"Pass\" : \"Fail\") << \"!\" << def << endl;
     }
+    cout << \"Total time taken = \" << (time/1000.0) << \" ms.\" << endl;
 	return 0;
 }
 " >> $cppFileName
