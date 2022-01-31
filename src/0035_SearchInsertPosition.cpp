@@ -1,6 +1,17 @@
 //LeetCode Problem 35 - Search Insert Position
 /*
-Binary search problem. 
+    Approach 1: Binary search problem
+    1. left = 0, right = nums.size() -1
+    2. Iterate with condition that left < right always
+        - compute mid = (left + right) / 2;
+        - if nums[mid] == target, return mid. Good for an insert position
+        - Otherwise,
+        - if nums[mid] < target, right = mid - 1. Else left = mid + 1
+    3. When condition fails i.e. left == right, compare nums[left] with target
+    4. if nums[left] < target, return left + 1 as insert position. Else left.
+
+ -----------------------------------------------------------------
+ Binary search problem.
 Only change - Asks insert index if searched number not found.
 
 start with finding mid = (start + end)/2
@@ -15,7 +26,6 @@ After that, either
 2. end was decreased, which means searched number is less than nums[mid], when mid = start = mid, So searched number needs to be inserted at start 
 and moving every number after it to right by 1.
 
-Still not very clear..
 */
 
 #include "everything.h"
@@ -31,11 +41,31 @@ struct Test{
 };
 class Solution {
     public:
-    int bruteforce(vector<int>& nums, int target) {        
+    int searchInsert(vector<int>& nums, int target) {
+        int left = 0, right = nums.size() -1;
+
+        while(left < right){
+            int mid = (left + right) / 2;
+            if(nums[mid] == target)
+                return mid;
+
+            if(nums[mid] < target)
+                left = mid + 1;
+            else
+                right = mid - 1;
+        }
+        if(target > nums[left])
+            return left + 1;
+        return left;
+    }
+
+
+    int bruteforce(vector<int>& nums, int target) {
         int i =0;
         while(i < nums.size() && nums[i] < target) i++;        
         return i;
     }
+
 
      int binarySearch_recursive(vector<int>& nums, int start, int end, int target){
         if(start > end) return start;        
