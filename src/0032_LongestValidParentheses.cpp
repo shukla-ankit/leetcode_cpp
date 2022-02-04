@@ -26,13 +26,13 @@ Approach 3: Dynamic Programming (Fastest!!)
  2. i-th element of dp array represents the length of the longest valid substring ending at i-th index.
  3. As valid string needs to end with ')', all indicies with '(' in string have 0 in dp array.
  4. If s[i] == ')' and s[i-1] == '(', then dp[i] = dp [i-2] + 2
- 5. If s[i] == ')' but s[i-1] != '(', and
+ 5. If s[i] == ')' but s[i-1] == ')', and
         if s[i -1 - dp[i-1]] = '(',                   // one place earlier - length of longest valid string must be '('
             then dp[i] = dp[i-1] + dp[i - dp[i-1] - 2] + 2 .
 
     .... X                (         (  .......  )       )
-     i-2-dp[i-1]     i-1-dp[i-1]  i-dp[i-1]    i-1      i
-    dp[i-2-dp[i-1]]                dp[i-1]   dp[i]
+     i-dp[i-1]-2     i-dp[i-1]-1  i-dp[i-1]    i-1      i
+    dp[i-dp[i-1]-2]                         dp[i-1]  dp[i]
 
 Amazing Fast!!
 -----------------------------------------------------------------------------------------------------------
