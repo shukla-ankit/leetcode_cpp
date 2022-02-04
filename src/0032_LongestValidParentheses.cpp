@@ -26,11 +26,14 @@ Approach 3: Dynamic Programming (Fastest!!)
  2. i-th element of dp array represents the length of the longest valid substring ending at i-th index.
  3. As valid string needs to end with ')', all indicies with '(' in string have 0 in dp array.
  4. If s[i] == ')' and s[i-1] == '(', then dp[i] = dp [i-2] + 2
- 5. Also, if s[i - dp[i-1] -1] = '(' then dp[i] = dp[i-1] + dp[i - dp[i-1] - 2] + 2
-    Because if there is a ')' at i-th index with another ')' preceding it like "..))", for it to have a non-zero
-    value the string preceding it needs to be valid. Then dp[i] depends on value at dp[i-1] plus 2 as
-    there will be another opening bracket and dp[i -dp[i-1] -2] as string ending at i could be composition of a string
-    outside dp[i-1] substring.
+ 5. If s[i] == ')' but s[i-1] != '(', and
+        if s[i -1 - dp[i-1]] = '(',                   // one place earlier - length of longest valid string must be '('
+            then dp[i] = dp[i-1] + dp[i - dp[i-1] - 2] + 2 .
+
+    .... X                (         (  .......  )       )
+     i-2-dp[i-1]     i-1-dp[i-1]  i-dp[i-1]    i-1      i
+    dp[i-2-dp[i-1]]                dp[i-1]   dp[i]
+
 Amazing Fast!!
 -----------------------------------------------------------------------------------------------------------
 */
@@ -107,7 +110,8 @@ class Solution {
 
     int longestValidParentheses(string s) {
         int maxans = 0;
-        int *dp = (int *)calloc(s.length(), sizeof(int));
+        //int *dp = (int *)calloc(s.length(), sizeof(int));
+        vector<int> dp(s.length(), 0);
         for (int i = 1; i < s.length(); i++) {
             if (s[i] == ')') {
                 if (s[i - 1] == '(') {
