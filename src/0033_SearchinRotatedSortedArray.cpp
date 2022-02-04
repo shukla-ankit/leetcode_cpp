@@ -67,7 +67,8 @@ class Solution {
             else
                 left = mid + 1;
         }
-        return -1;
+        if(left < nums.size() && nums[left] == target)
+            return left;
     }
 
     int singlePassSearch(vector<int>& nums, int target){
@@ -85,9 +86,9 @@ class Solution {
             }
             else {
                 if(nums[mid] < target && target <= nums[right])
-                    right = mid - 1;
-                else
                     left = mid + 1;
+                else
+                    right = mid - 1;
             }
         }
         return -1;
@@ -113,9 +114,11 @@ class Solution {
 int main() {
     Solution sol;
     vector<Test> vecTests = {
+            {{5, 1, 3},3,2},
             {{4,5,6,7,0,1,2},0,4},
             {{4,5,6,7,0,1,2},3,-1},
             {{1},0,-1},
+            {{1},1,0},
     };
     int count = 0, time = 0;
     for(auto test: vecTests){
