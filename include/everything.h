@@ -45,6 +45,9 @@ Color::Modifier def(Color::FG_DEFAULT);
         string print_array(vector<T> array){
             string ret = "[" ;
             for(auto n: array){
+                if (std::is_same<T, char>::value)
+                    ret += string(1, n) +",";
+                else
                     ret += to_string(n) + ",";
             }
             if(array.size() > 0)
@@ -110,7 +113,7 @@ Color::Modifier def(Color::FG_DEFAULT);
         string print_array_of_arrays(vector<vector<T>> arrayOfArrays){
             string ret = "[" ;
             for(auto array : arrayOfArrays)
-                ret += print_array(array) + ", ";
+                ret += print_array<T>(array) + ", ";
             return ret + "]" ;            
         }
 
@@ -132,7 +135,7 @@ Color::Modifier def(Color::FG_DEFAULT);
                 return false;
 
             for(int i = 0; i< arrayOfArrays1.size() ; i++){
-                if(match_array(arrayOfArrays1[i], arrayOfArrays2[i]))
+                if(!match_array(arrayOfArrays1[i], arrayOfArrays2[i]))
                     return false;
             }
             return true;

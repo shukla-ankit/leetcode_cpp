@@ -43,6 +43,7 @@ add_executable(0033_SearchinRotatedSortedArray src/0033_SearchinRotatedSortedArr
 add_executable(0034_FindFirstandLastPositionofElementinSortedArray src/0034_FindFirstandLastPositionofElementinSortedArray.cpp)
 add_executable(0035_SearchInsertPosition src/0035_SearchInsertPosition.cpp)
 add_executable(0036_ValidSudoku src/0036_ValidSudoku.cpp)
+add_executable(0037_SudokuSolver src/0037_SudokuSolver.cpp)
 add_executable(0038_CountandSay src/0038_CountandSay.cpp)
 add_executable(0043_MultiplyStrings src/0043_MultiplyStrings.cpp)
 add_executable(0046_Permutations src/0046_Permutations.cpp)
