@@ -1,11 +1,14 @@
 //LeetCode Problem 39 - Combination Sum
 /*
 -----------------------------------------------------------------------------------------------------------
-My Method:
-
------------------------------------------------------------------------------------------------------------
 Leetcode Method:
 
+ Backtracking approach-
+ 1. As candidates will always be > 0, return if target < 0
+ 2. If target = 0, return current combination of candidates
+ 3. Iterate over all candidates from current index till end of candidate list
+    Keep adding iterated candidate to combination and call backtracking
+    Remove added candidate
 -----------------------------------------------------------------------------------------------------------
 */
 #include "everything.h"
