@@ -1,11 +1,16 @@
 //LeetCode Problem 41 - First Missing Positive
 /*
 -----------------------------------------------------------------------------------------------------------
-My Method:
-
------------------------------------------------------------------------------------------------------------
 Leetcode Method:
 
+ 1. Two passes required.
+ 2. Create a temp vector of same size as nums with initial values as -1.
+ 3. First pass - Iterate over nums
+        if nums[i] > nums.size(), set nums[i] = -1
+        if nums[i] > 0, set temp[nums[i] - 1] = nums[i]
+ So basically put 1 from nums at 0th index in temp, 2 from nums at 1st index place in temp, 3 from nums at 2nd index
+ place in temp etc.
+ 4. Parse temp and if found -1, it means this places value is missing in nums, so return index + 1 as missing value
 -----------------------------------------------------------------------------------------------------------
 */
 #include "everything.h"
