@@ -119,6 +119,7 @@ Color::Modifier def(Color::FG_DEFAULT);
 
         template <typename T>
         bool match_array(vector<T> array1, vector<T> array2){
+            /*
             if (array1.size() != array2.size())
                 return false;
 
@@ -127,6 +128,8 @@ Color::Modifier def(Color::FG_DEFAULT);
                     return false;
             }
             return true;
+            */
+            return equal(array1.begin(), array1.end(), array2.begin());
         }
         
         template <typename T>
