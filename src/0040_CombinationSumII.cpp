@@ -27,13 +27,11 @@ public:
                 result.push_back(comb);
             return;
         }
-        if(vecFreqCounter[current].frequency < 0)
-            return;
-
         for(auto i = current; i < vecFreqCounter.size(); i++){
             comb.push_back(vecFreqCounter[i].num);
             vecFreqCounter[i].frequency--;
-            backtracking(vecFreqCounter, remain - vecFreqCounter[i].num, i, comb, result);
+            if(vecFreqCounter[current].frequency >= 0)
+                backtracking(vecFreqCounter, remain - vecFreqCounter[i].num, i, comb, result);
             vecFreqCounter[i].frequency++;
             comb.pop_back();
         }
@@ -70,6 +68,7 @@ int main() {
             {{10,1,2,7,6,1,5}, 8, {{1,1,6},{1,2,5},{1,7},{2,6}}},
             {{2,5,2,1,2}, 5, {{1,2,2},{5}}},
             {{2}, 1, {}},
+            {{10,1,2,7,6,1,5}, 8, {{1,7},{1,1,6},{1,2,5}, {2,6}}},
             {{1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
               1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1},
             30,{{1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1}}}
