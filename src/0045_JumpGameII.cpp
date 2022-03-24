@@ -18,15 +18,15 @@ struct Test{
 class Solution {
     public:
 //approach 1
-    void backtracking(vector<int>& nums, int start, int jumps, int& min_jumps){
-        if(min_jumps < jumps)
+    void backtracking(vector<int>& nums, int start, int total_jumps, int& min_jumps){
+        if(min_jumps < total_jumps)
             return;
-        if(start == nums.size()-1 && min_jumps > jumps)
-            min_jumps = jumps;
+        if(start == nums.size()-1 && min_jumps > total_jumps)
+            min_jumps = total_jumps;
         if(start < nums.size()-1){
             for(int i=nums[start]; i >=1 ; i--){ //Preferring longer jumps
                 //cout << start+i << "," << jumps + 1 << "," <<  min_jumps << endl;
-                backtracking(nums, start+i, jumps + 1, min_jumps);
+                backtracking(nums, start+i, total_jumps + 1, min_jumps);
             }
         }
     }
@@ -54,8 +54,8 @@ class Solution {
     }
 
     int jump(vector<int>& nums){
-        return jump1(nums);
-        //return jump2(nums);
+        //return jump1(nums);
+        return jump2(nums);
     }
 };
 int main() {
