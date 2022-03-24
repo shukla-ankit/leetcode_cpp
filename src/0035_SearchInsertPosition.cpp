@@ -41,44 +41,25 @@ struct Test{
 };
 class Solution {
     public:
-    int searchInsert(vector<int>& nums, int target) {
-        int left = 0, right = nums.size() -1;
-
-        while(left < right){
-            int mid = (left + right) / 2;
-            if(nums[mid] == target)
-                return mid;
-
-            if(nums[mid] < target)
-                left = mid + 1;
-            else
-                right = mid - 1;
-        }
-        if(target > nums[left])
-            return left + 1;
-        return left;
-    }
-
 
     int bruteforce(vector<int>& nums, int target) {
         int i =0;
-        while(i < nums.size() && nums[i] < target) i++;        
+        while(i < nums.size() && nums[i] < target) i++;
         return i;
     }
 
+    int binarySearch_recursive(vector<int>& nums, int start, int end, int target){
+        if(start > end) return start;
 
-     int binarySearch_recursive(vector<int>& nums, int start, int end, int target){
-        if(start > end) return start;        
-        
         int mid = (start+end)/2;
-        
+
         cout << "start = " << start << ", mid =" << mid << ", end = " << end << endl;
 
         if(target == nums[mid])
             return mid;
-        else if(target < nums[mid]) 
+        else if(target < nums[mid])
             return binarySearch_recursive(nums, start, mid - 1, target);
-        else 
+        else
             return binarySearch_recursive(nums, mid + 1, end, target);
     }
 
@@ -96,6 +77,25 @@ class Solution {
         }
         return start;
     }
+
+    int searchInsert1(vector<int>& nums, int target) {
+        int left = 0, right = nums.size() -1;
+
+        while(left < right){
+            int mid = (left + right) / 2;
+            if(nums[mid] == target)
+                return mid;
+
+            if(nums[mid] < target)
+                left = mid + 1;
+            else
+                right = mid - 1;
+        }
+        if(target > nums[left])
+            return left + 1;
+        return left;
+    }
+
     int method(vector<int>& nums, int target) {
         //return bruteforce(nums, target);
         int start = 0, end = nums.size() -1;
@@ -110,8 +110,10 @@ class Solution {
     int leetcode_solution(vector<int>& nums, int target) {
         return 0;
     }
+
     int searchInsert(vector<int>& nums, int target) {
-        return method(nums, target);
+        //return method(nums, target);
+        return searchInsert1(nums, target);
     }
 };
 int main() {
