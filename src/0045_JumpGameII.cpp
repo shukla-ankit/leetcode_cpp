@@ -17,6 +17,23 @@ struct Test{
 };
 class Solution {
     public:
+//my approach
+    int jump(vector<int>& nums) {
+        int current = 0, curMaxJump = nums[0], nextMaxJump = nums[0], numJumps = 0;
+        if(nums.size() > 1)
+            ++numJumps;
+        for(int i=current; i <= curMaxJump; i++){
+            if(i >= nums.size() - 1)
+                return numJumps;
+            nextMaxJump = max(nextMaxJump, i + nums[i]);
+            if(i == curMaxJump){
+                curMaxJump = nextMaxJump;
+                ++numJumps;
+            }
+        }
+        return -1;
+    }
+
 //approach 1
     void backtracking(vector<int>& nums, int start, int total_jumps, int& min_jumps){
         if(min_jumps < total_jumps)
