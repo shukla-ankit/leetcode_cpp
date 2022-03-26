@@ -60,6 +60,8 @@ add_executable(0050_Pow_x_n src/0050_Pow_x_n.cpp)
 add_executable(0051_N-Queens src/0051_N-Queens.cpp)
 add_executable(0052_N-QueensII src/0052_N-QueensII.cpp)
 add_executable(0053_MaximumSubarray src/0053_MaximumSubarray.cpp)
+add_executable(0054_SpiralMatrix src/0054_SpiralMatrix.cpp)
+add_executable(0055_JumpGame src/0055_JumpGame.cpp)
 
 add_executable(0167_TwoSumII-InputArrayIsSorted src/0167_TwoSumII-InputArrayIsSorted.cpp)
 add_executable(0259_3SumSmaller src/0259_3SumSmaller.cpp)
