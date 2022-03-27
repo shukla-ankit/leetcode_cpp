@@ -69,6 +69,8 @@ add_executable(0059_SpiralMatrixII src/0059_SpiralMatrixII.cpp)
 add_executable(0060_PermutationSequence src/0060_PermutationSequence.cpp)
 add_executable(0061_RotateList src/0061_RotateList.cpp)
 add_executable(0062_UniquePaths src/0062_UniquePaths.cpp)
+add_executable(0063_UniquePathsII src/0063_UniquePathsII.cpp)
+add_executable(0064_MinimumPathSum src/0064_MinimumPathSum.cpp)
 
 add_executable(0167_TwoSumII-InputArrayIsSorted src/0167_TwoSumII-InputArrayIsSorted.cpp)
 add_executable(0259_3SumSmaller src/0259_3SumSmaller.cpp)
