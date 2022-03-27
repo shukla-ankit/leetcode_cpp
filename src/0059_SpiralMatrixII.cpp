@@ -1,8 +1,8 @@
-//LeetCode Problem 54 - Spiral Matrix
+//LeetCode Problem 59 - Spiral Matrix II
 /*
 -----------------------------------------------------------------------------------------------------------
 Approach 1:
-1. Create a loop variable and a direction enum.
+1. Create a loop variable, a direction enum and counter
 2. Loop will change direction when
     - RIGHT -> DOWN : row == nrows - 1 - loop,  where outermost loop starts from 0
     - DOWN -> LEFT : col == ncols - 1 - loop
@@ -13,26 +13,28 @@ Approach 1:
     - DOWN: row++
     - LEFT : col--
     - UP : row--
+    Keep incrementing counter and assigning it to matrix[row][col]
 With direction change, increments in row and column need be made as per new direction.
 -----------------------------------------------------------------------------------------------------------
 */
 #include "everything.h"
 
 struct Test{
-    vector<vector<int>> input;
-    vector<int> output;
+    int input;
+    vector<vector<int>> output;
 };
 class Solution {
-    public:
-    vector<int> spiralOrder(vector<vector<int>>& matrix) {
-        vector<int> ret;
-        if(!matrix.empty()){
-            int n_rows = matrix.size(), n_cols = matrix[0].size(), loop = 0;
+public:
+    vector<vector<int>> generateMatrix(int n){
+        vector<vector<int>> matrix;
+        if(n > 0)
+        {
+            matrix.resize(n, vector<int>(n, INT_MIN));
             enum Direction{ RIGHT, DOWN, LEFT, UP};
             Direction currDirection = Direction::RIGHT;
-            int row = 0, col = 0;
-            while(ret.size() < n_rows * n_cols){
-                ret.push_back(matrix[row][col]);
+            int row = 0, col = 0, n_rows = n, n_cols = n, loop = 0, current = 0;
+            while(current < n_rows * n_cols){
+                matrix[row][col] = ++current;
                 if(currDirection == Direction::RIGHT){
                     if(col == n_cols - 1  - loop) {
                         currDirection = Direction::DOWN;
@@ -68,26 +70,25 @@ class Solution {
                 }
             }
         }
-        return ret;
+        return matrix;
     }
 };
 int main() {
     Solution sol;
     vector<Test> vecTests = {
-            {{{1,2,3},{4,5,6},{7,8,9}},{1,2,3,6,9,8,7,4,5}},
-            {{{1,2,3,4},{5,6,7,8},{9,10,11,12}}, {1,2,3,4,8,12,11,10,9,5,6,7}},
-            {{{1,2,3,4,5},{6,7,8,9,10},{11,12,13,14,15},{16,17,18,19,20},{21,22,23,24,25}}, {1,2,3,4,5,10,15,20,25,24,23,22,21,16,11,6,7,8,9,14,19,18,17,12,13} }
+            {3, {{1,2,3},{8,9,4},{7,6,5}}},
+            {1,{{1}}}
     };
     int count = 0, time = 0;
     for(auto test: vecTests){
         auto start = high_resolution_clock::now();
-        auto output = sol.spiralOrder(test.input);
+        auto output = sol.generateMatrix(test.input);
         auto duration = duration_cast<microseconds>(high_resolution_clock::now() - start);
-        bool bIsPass = match_array(output, test.output);
+        bool bIsPass = match_arrays_of_arrays(output, test.output);
         time += duration.count();
-        cout << "Test #" << ++count << " : Input = " << print_array_of_arrays(test.input) << ", Output = " << print_array(output) << ", Time taken= " << duration.count()/1000.0 << " ms, Result : " <<  (bIsPass? green : red) << (bIsPass? "Pass" : "Fail") << "!" << def << endl;
+        cout << "Test #" << ++count << " : Input = " << (test.input) << ", Output = " << print_array_of_arrays(output) << ", Time taken= " << duration.count()/1000.0 << " ms, Result : " <<  (bIsPass? green : red) << (bIsPass? "Pass" : "Fail") << "!" << def << endl;
     }
     cout << "Total time taken = " << (time/1000.0) << " ms." << endl;
-	return 0;
+    return 0;
 }
 

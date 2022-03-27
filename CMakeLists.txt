@@ -63,6 +63,10 @@ add_executable(0053_MaximumSubarray src/0053_MaximumSubarray.cpp)
 add_executable(0054_SpiralMatrix src/0054_SpiralMatrix.cpp)
 add_executable(0055_JumpGame src/0055_JumpGame.cpp)
 
+
+
+add_executable(0059_SpiralMatrixII src/0059_SpiralMatrixII.cpp)
+
 add_executable(0167_TwoSumII-InputArrayIsSorted src/0167_TwoSumII-InputArrayIsSorted.cpp)
 add_executable(0259_3SumSmaller src/0259_3SumSmaller.cpp)
 add_executable(0371_SumofTwoIntegers src/0371_SumofTwoIntegers.cpp)
