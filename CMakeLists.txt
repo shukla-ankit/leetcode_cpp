@@ -67,6 +67,7 @@ add_executable(0057_InsertInterval src/0057_InsertInterval.cpp)
 add_executable(0058_LengthofLastWord src/0058_LengthofLastWord.cpp)
 add_executable(0059_SpiralMatrixII src/0059_SpiralMatrixII.cpp)
 add_executable(0060_PermutationSequence src/0060_PermutationSequence.cpp)
+add_executable(0061_RotateList src/0061_RotateList.cpp)
 add_executable(0062_UniquePaths src/0062_UniquePaths.cpp)
 
 add_executable(0167_TwoSumII-InputArrayIsSorted src/0167_TwoSumII-InputArrayIsSorted.cpp)
