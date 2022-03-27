@@ -62,7 +62,7 @@ add_executable(0052_N-QueensII src/0052_N-QueensII.cpp)
 add_executable(0053_MaximumSubarray src/0053_MaximumSubarray.cpp)
 add_executable(0054_SpiralMatrix src/0054_SpiralMatrix.cpp)
 add_executable(0055_JumpGame src/0055_JumpGame.cpp)
-
+add_executable(0056_MergeIntervals src/0056_MergeIntervals.cpp)
 
 
 add_executable(0059_SpiralMatrixII src/0059_SpiralMatrixII.cpp)
