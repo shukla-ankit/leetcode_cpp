@@ -63,8 +63,8 @@ add_executable(0053_MaximumSubarray src/0053_MaximumSubarray.cpp)
 add_executable(0054_SpiralMatrix src/0054_SpiralMatrix.cpp)
 add_executable(0055_JumpGame src/0055_JumpGame.cpp)
 add_executable(0056_MergeIntervals src/0056_MergeIntervals.cpp)
-
-
+add_executable(0057_InsertInterval src/0057_InsertInterval.cpp)
+add_executable(0058_LengthofLastWord src/0058_LengthofLastWord.cpp)
 add_executable(0059_SpiralMatrixII src/0059_SpiralMatrixII.cpp)
 
 add_executable(0167_TwoSumII-InputArrayIsSorted src/0167_TwoSumII-InputArrayIsSorted.cpp)
