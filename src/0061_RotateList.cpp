@@ -15,6 +15,8 @@ struct Test{
 class Solution {
     public:
     ListNode* rotateRight(ListNode* head, int k) {
+        if(k == 0 || head == nullptr)
+            return head;
         ListNode* ptr = head;
         int counter = 0, length = -1;
         while(ptr != nullptr) {
