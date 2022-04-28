@@ -33,8 +33,10 @@ Problem Groups
 ```
 Linked List Node Swap : 24, 25
 String Matching: 28
-n Sum: 15, 16, 18, 259
+n Sum: 1, 15, 16, 18, 259
 Backtracking Problems: 37, 39, 40
+Binary Search: 34, 31, 32
+
 
 One of a kind problems:
 Problem 60 - kth Permutation Sequence

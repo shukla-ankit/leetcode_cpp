@@ -71,15 +71,26 @@ add_executable(0061_RotateList src/0061_RotateList.cpp)
 add_executable(0062_UniquePaths src/0062_UniquePaths.cpp)
 add_executable(0063_UniquePathsII src/0063_UniquePathsII.cpp)
 add_executable(0064_MinimumPathSum src/0064_MinimumPathSum.cpp)
+#add_executable(0065_ValidNumber src/0065_ValidNumber.cpp)
+add_executable(0066_PlusOne src/0066_PlusOne.cpp)
+add_executable(0067_AddBinary src/0067_AddBinary.cpp)
+
 add_executable(0100_SameTree src/0100_SameTree.cpp)
-add_executable(test.cpp src/test.cpp)
+
+add_executable(0121_BestTimetoBuyandSellStock src/0121_BestTimetoBuyandSellStock.cpp)
+
 add_executable(0167_TwoSumII-InputArrayIsSorted src/0167_TwoSumII-InputArrayIsSorted.cpp)
+
 add_executable(0259_3SumSmaller src/0259_3SumSmaller.cpp)
+
+add_executable(0347_TopKFrequentElements src/0347_TopKFrequentElements.cpp)
 add_executable(0371_SumofTwoIntegers src/0371_SumofTwoIntegers.cpp)
 add_executable(0415_AddStrings src/0415_AddStrings.cpp)
 add_executable(0445_AddTwoNumbersII src/0445_AddTwoNumbersII.cpp)
 add_executable(0989_AddtoArray-FormofInteger src/0989_AddtoArray-FormofInteger.cpp)
 add_executable(1634_AddTwoPolynomialsRepresentedasLinkedLists src/1634_AddTwoPolynomialsRepresentedasLinkedLists.cpp)
+
+add_executable(test.cpp src/test.cpp)
 
 # for i in `ls | cut -d '.' -f1`; do echo 'add_executable('$i' src/'$i'.cpp)'; done
 

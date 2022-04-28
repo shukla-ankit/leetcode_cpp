@@ -21,7 +21,7 @@ struct Test{
 };
 class Solution {
     public:
-        ListNode* reverseKGroup(ListNode* head, int k) {
+    ListNode* reverseKGroup(ListNode* head, int k) {
         ListNode *newhead = nullptr, *newptr = nullptr, *ptr = head;
         
         while(ptr){

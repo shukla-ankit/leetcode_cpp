@@ -61,26 +61,18 @@ class Solution {
         while(list1){
             if(head == nullptr){
                 head = list1;
-                cur = head;
-                list1 = list1-> next;
             }
             else{
                 cur -> next = list1;
-                list1 = list1-> next;
-                cur = cur-> next;
             }
         }
         
         while(list2){
             if(head == nullptr){
                 head = list2;
-                cur = head;
-                list2 = list2-> next;
             }
             else{
                 cur -> next = list2;
-                cur = cur-> next;
-                list2 = list2-> next;
             }
         }
         

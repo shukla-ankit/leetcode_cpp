@@ -2,6 +2,7 @@
 #include <vector>
 #include <set>
 #include <map>
+#include <queue>
 #include <string>
 #include <climits>
 #include <ostream>
@@ -142,5 +143,45 @@ Color::Modifier def(Color::FG_DEFAULT);
                     return false;
             }
             return true;
+        }
+
+        struct TreeNode {
+            int val;
+            TreeNode *left;
+            TreeNode *right;
+            TreeNode() : val(0), left(nullptr), right(nullptr) {}
+            TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
+            TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
+        };
+
+        TreeNode* CreateTreeBFS(vector<int> v){
+            TreeNode* root = nullptr, *ptr = nullptr;
+            queue<TreeNode*> q;
+            bool bSkipped = false;
+            for(int i = 0; i < v.size(); i++){
+                if(root == nullptr) {
+                    root = new TreeNode(v[i]);
+                    q.push(root);
+                }
+                else{
+                    TreeNode* ptr = q.front();
+                    if(!bSkipped && ptr->left == nullptr) {
+                        if(v[i] != 0) {
+                            ptr->left = new TreeNode(v[i]);
+                            q.push(ptr->left);
+                        }
+                        else
+                            bSkipped = true;
+                    }
+                    else if(ptr->right == nullptr){
+                        if(v[i] != 0) {
+                            ptr->right = new TreeNode(v[i]);
+                            q.push(ptr->right);
+                        }
+                        q.pop();
+                    }
+                }
+            }
+            return root;
         }
 #endif // __EVERYTHING__H
