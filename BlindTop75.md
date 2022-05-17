@@ -1,10 +1,10 @@
 Array
 
 [*](https://leetcode.com/problems/two-sum) [Two Sum](https://github.com/shukla-ankit/leetcode_cpp/blob/master/src/0001_TwoSum.cpp)   
-[*](https://leetcode.com/problems/best-time-to-buy-and-sell-stock) [Best Time to Buy and Sell Stock]()   
-[*](https://leetcode.com/problems/contains-duplicate) [Contains Duplicate]()   
-[*](https://leetcode.com/problems/product-of-array-except-self) [Product of Array Except Self]()   
-[*](https://leetcode.com/problems/maximum-subarray) [Maximum Subarray]()   
+[*](https://leetcode.com/problems/best-time-to-buy-and-sell-stock) [Best Time to Buy and Sell Stock](https://github.com/shukla-ankit/leetcode_cpp/blob/master/src/0121_BestTimetoBuyandSellStock.cpp)   
+[*](https://leetcode.com/problems/contains-duplicate) [Contains Duplicate](https://github.com/shukla-ankit/leetcode_cpp/blob/master/src/0217_ContainsDuplicate.cpp)   
+[*](https://leetcode.com/problems/product-of-array-except-self) [Product of Array Except Self](https://github.com/shukla-ankit/leetcode_cpp/blob/master/src/0238_ProductofArrayExceptSelf.cpp)   
+[*](https://leetcode.com/problems/maximum-subarray) [Maximum Subarray](https://github.com/shukla-ankit/leetcode_cpp/blob/master/src/0053_MaximumSubarray.cpp)   
 [*](https://leetcode.com/problems/maximum-product-subarray) [Maximum Product Subarray]()   
 [*](https://leetcode.com/problems/find-minimum-in-rotated-sorted-array) [Find Minimum in Rotated Sorted Array]()   
 [*](https://leetcode.com/problems/search-in-rotated-sorted-array) [Search in Rotated Sorted Array](https://github.com/shukla-ankit/leetcode_cpp/blob/master/src/0033_SearchinRotatedSortedArray.cpp)   
