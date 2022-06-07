@@ -159,40 +159,33 @@ Color::Modifier def(Color::FG_DEFAULT);
         };
 
         TreeNode* CreateTreeBFS(vector<int> v){
-            TreeNode* root = nullptr, *ptr = nullptr;
-            queue<TreeNode*> q;
+            TreeNode *root = nullptr, *ptr = nullptr;
             bool bSkipped = false;
-            for(int i = 0; i < v.size(); i++){
+
+            queue<int> q;
+            for(auto n : v)
+                q.push(n);
+
+            while(!q.empty()){
                 if(root == nullptr) {
-                    if(v[i] == NULL)
-                        q.push(NULL);
-                    else{
-                        root = new TreeNode(v[i]);
-                        q.push(root);
-                    }
+                    root = new TreeNode(q.front());
+                    ptr = root;
                 }
                 else{
-                    if(v[i] == NULL)
-                        q.push(NULL);
-                    else {
-                        TreeNode *ptr = q.front();
-                        if (!bSkipped && ptr->left == nullptr) {
-                            if (v[i] != 0) {
-                                ptr->left = new TreeNode(v[i]);
-                                q.push(ptr->left);
-                            }
-                            else
-                                bSkipped = true;
-                        } else if (ptr->right == nullptr) {
-                            if (v[i] != 0) {
-                                ptr->right = new TreeNode(v[i]);
-                                q.push(ptr->right);
-                            }
-                            q.pop();
-                        }
+                    int next_val = q.front();
+                    if (!bSkipped && ptr->left == nullptr) {
+                        if ( next_val == 0)
+                            bSkipped = true;
+                        else
+                            ptr->left = new TreeNode(next_val);
+                    }
+                    else if (ptr->right == nullptr) {
+                        if (next_val != 0)
+                            ptr->right = new TreeNode(next_val);
                     }
                 }
+                q.pop();
             }
-            return root;
+v            return root;
         }
 #endif // __EVERYTHING__H

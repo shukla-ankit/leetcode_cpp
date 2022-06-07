@@ -15,16 +15,27 @@ struct Test{
 class Solution {
     public:
     bool isSameTree(TreeNode* p, TreeNode* q) {
+        if(p != nullptr & q != nullptr){
+            if(p -> val != q-> val)
+                return false;
+            return isSameTree(p->left, q->left) & isSameTree(p->right, q->right);
+        }
+        else
+            return !(p != nullptr || q != nullptr);
+    }
+
+    bool isSameTree1(TreeNode* p, TreeNode* q) {
         if(!p && !q)
             return true;
         if( (p && !q) || (!p && q) || p->val != q->val)
             return false;
-        return isSameTree(p->left, q->left) && isSameTree(p->right, q->right);
+        return isSameTree1(p->left, q->left) && isSameTree1(p->right, q->right);
     }
 };
 int main() {
     Solution sol;
     vector<Test> vecTests = {
+            {{1,2, 3}, {1,2,3}, true},
             {{1,2}, {1,0,2}, false},
             {{1,2,1}, {1,1,2}, false}
     };
