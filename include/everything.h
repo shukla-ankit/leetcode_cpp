@@ -152,6 +152,10 @@ Color::Modifier def(Color::FG_DEFAULT);
             TreeNode() : val(0), left(nullptr), right(nullptr) {}
             TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
             TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
+            ~TreeNode(){
+                if(left) delete left;
+                if(right) delete right;
+            }
         };
 
         TreeNode* CreateTreeBFS(vector<int> v){
@@ -160,25 +164,32 @@ Color::Modifier def(Color::FG_DEFAULT);
             bool bSkipped = false;
             for(int i = 0; i < v.size(); i++){
                 if(root == nullptr) {
-                    root = new TreeNode(v[i]);
-                    q.push(root);
+                    if(v[i] == NULL)
+                        q.push(NULL);
+                    else{
+                        root = new TreeNode(v[i]);
+                        q.push(root);
+                    }
                 }
                 else{
-                    TreeNode* ptr = q.front();
-                    if(!bSkipped && ptr->left == nullptr) {
-                        if(v[i] != 0) {
-                            ptr->left = new TreeNode(v[i]);
-                            q.push(ptr->left);
+                    if(v[i] == NULL)
+                        q.push(NULL);
+                    else {
+                        TreeNode *ptr = q.front();
+                        if (!bSkipped && ptr->left == nullptr) {
+                            if (v[i] != 0) {
+                                ptr->left = new TreeNode(v[i]);
+                                q.push(ptr->left);
+                            }
+                            else
+                                bSkipped = true;
+                        } else if (ptr->right == nullptr) {
+                            if (v[i] != 0) {
+                                ptr->right = new TreeNode(v[i]);
+                                q.push(ptr->right);
+                            }
+                            q.pop();
                         }
-                        else
-                            bSkipped = true;
-                    }
-                    else if(ptr->right == nullptr){
-                        if(v[i] != 0) {
-                            ptr->right = new TreeNode(v[i]);
-                            q.push(ptr->right);
-                        }
-                        q.pop();
                     }
                 }
             }

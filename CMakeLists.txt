@@ -77,9 +77,19 @@ add_executable(0067_AddBinary src/0067_AddBinary.cpp)
 
 add_executable(0100_SameTree src/0100_SameTree.cpp)
 
+add_executable(0104_MaximumDepthofBinaryTree src/0104_MaximumDepthofBinaryTree.cpp)
+
 add_executable(0121_BestTimetoBuyandSellStock src/0121_BestTimetoBuyandSellStock.cpp)
 
+add_executable(0133_CloneGraph src/0133_CloneGraph.cpp)
+
+add_executable(0152_MaximumProductSubarray src/0152_MaximumProductSubarray.cpp)
+
 add_executable(0167_TwoSumII-InputArrayIsSorted src/0167_TwoSumII-InputArrayIsSorted.cpp)
+
+add_executable(0217_ContainsDuplicate src/0217_ContainsDuplicate.cpp)
+
+add_executable(0238_ProductofArrayExceptSelf src/0238_ProductofArrayExceptSelf.cpp)
 
 add_executable(0259_3SumSmaller src/0259_3SumSmaller.cpp)
 
