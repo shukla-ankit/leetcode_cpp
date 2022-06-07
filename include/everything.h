@@ -186,6 +186,6 @@ Color::Modifier def(Color::FG_DEFAULT);
                 }
                 q.pop();
             }
-v            return root;
+            return root;
         }
 #endif // __EVERYTHING__H
